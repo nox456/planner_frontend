@@ -25,6 +25,7 @@ if (auth.status == 401) {
             const container = document.createElement("article")
             container.innerHTML = `
                 <h3>${task.name}</h3>
+                <button id="delete-button">Eliminar</button>
                 <hr>
                 <p>${task.course}</p>
                 <p>${task.topic}</p>
@@ -33,6 +34,17 @@ if (auth.status == 401) {
                 <p>${task.finish_date}</p>
             `
             tasks_container.appendChild(container)
+            const delete_button = container.querySelector("#delete-button")
+            delete_button.addEventListener("click", async (e) => {
+                e.preventDefault()
+                container.remove()
+                if (tasks_container.children.length == 0) {
+                    tasks_container.innerText = "No hay tareas, por ahora..."
+                }
+                await fetch(`http://localhost:4000/tasks?id=${task.id}`, {
+                    method: "DELETE"
+                })
+            })
         })
     }
 }
