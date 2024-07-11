@@ -12,7 +12,7 @@
 
         <form id="form">
             <input type="text" id="name" placeholder="Nombre..." />
-            <select id="course">
+            <select id="course_select">
                 <option selected hidden>Materia</option>
                 <option>Matemática</option>
                 <option>Estadística</option>
@@ -22,6 +22,11 @@
                 <option>Derecho</option>
                 <option>Geometría</option>
             </select>
+            <input type="text" id="course_text" placeholder="Materia..." hidden>
+            <label>
+                <input type="checkbox" id="custom-course">
+                Materia Personalizada
+            </label>
             <select id="evaluation">
                 <option selected hidden>Evaluación</option>
                 <option>Examen</option>

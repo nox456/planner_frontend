@@ -13,10 +13,23 @@ if (auth.status == 401) {
 
     const form = document.querySelector("#form");
     const name_input = form.querySelector("#name");
-    const course_input = form.querySelector("#course");
+    let course_input = form.querySelector("#course_select");
     const evaluation_input = form.querySelector("#evaluation");
     const topic_input = form.querySelector("#topic");
     const finish_input = form.querySelector("#finish_date");
+
+    const custom_course_input = form.querySelector("#custom-course")
+    custom_course_input.addEventListener("change", () => {
+        if (course_input.tagName == "SELECT") {
+            form.querySelector("#course_select").setAttribute("hidden","true")
+            form.querySelector("#course_text").removeAttribute("hidden")
+            course_input = form.querySelector("#course_text")
+        } else {
+            form.querySelector("#course_text").setAttribute("hidden","true")
+            form.querySelector("#course_select").removeAttribute("hidden")
+            course_input = form.querySelector("#course_select")
+        }
+    })
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
