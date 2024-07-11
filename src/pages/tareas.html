@@ -5,42 +5,54 @@
         <title>Tareas - PlannerApp</title>
     </head>
     <body>
-        <form>
-            <input type="text" value="Buscar" />
-            <input type="date" />
-            <select name="evaluation">
-                <option selected hidden>Evaluación</option>
-                <option>Examen</option>
-                <option>Exposición</option>
-                <option>Taller</option>
-            </select>
-            <select name="course">
-                <option selected hidden>Materia</option>
-                <option>Matemática</option>
-                <option>Estadística</option>
-                <option>Informatica</option>
-                <option>Programación</option>
-                <option>Lógica</option>
-                <option>Derecho</option>
-                <option>Geometría</option>
-            </select>
-            <select name="is_done">
-                <option selected hidden>Estado</option>
-                <option>Hecha</option>
-                <option>No Hecha</option>
-            </select>
-        </form>
-        <button id="username"></button>
-        <a href="clasificacion.html">Enlace tabla clasificación</a><br />
-        <a href="logros.html">Enlace lista de logros</a><br>
-        <p id="score"></p>
-        <p id="achievements"></p>
-        <a href="crear_tarea.html">Crear Tarea</a>
-        <main id="tasks-container"></main>
+        <header>
+            <form>
+                <input type="text" value="Buscar" />
+                <input type="date" />
+                <select name="evaluation">
+                    <option selected hidden>Evaluación</option>
+                    <option>Examen</option>
+                    <option>Exposición</option>
+                    <option>Taller</option>
+                </select>
+                <select name="course">
+                    <option selected hidden>Materia</option>
+                    <option>Matemática</option>
+                    <option>Estadística</option>
+                    <option>Informatica</option>
+                    <option>Programación</option>
+                    <option>Lógica</option>
+                    <option>Derecho</option>
+                    <option>Geometría</option>
+                </select>
+                <select name="is_done">
+                    <option selected hidden>Estado</option>
+                    <option>Hecha</option>
+                    <option>No Hecha</option>
+                </select>
+            </form>
+            <button id="username"></button>
+        </header>
+
+        <aside>
+            <a href="clasificacion.html">Enlace tabla clasificación</a><br />
+            <a href="logros.html">Enlace lista de logros</a><br />
+        </aside>
+
+        <main>
+            <a href="crear_tarea.html">Crear Tarea</a>
+            <section id="tasks-container"></section>
+        </main>
+
+        <aside>
+            <p id="score"></p>
+            <p id="achievements"></p>
+        </aside>
+
         <footer>
             <a href="desarrolladores.html">Desarrolladores|Información</a>
         </footer>
+
         <script src="../js/tasks.js" type="module"></script>
     </body>
 </html>
-
