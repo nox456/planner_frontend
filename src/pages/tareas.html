@@ -5,7 +5,6 @@
         <title>Tareas - PlannerApp</title>
     </head>
     <body>
-        <h1>Tareas</h1>
         <form>
             <input type="text" value="Buscar" />
             <input type="date" />
@@ -30,33 +29,17 @@
                 <option>Hecha</option>
                 <option>No Hecha</option>
             </select>
-            <a href="">Usuario</a>
         </form>
+        <button id="username"></button>
         <a href="clasificacion.html">Enlace tabla clasificación</a><br />
         <a href="logros.html">Enlace lista de logros</a><br>
-        <h4>(Puntos)</h4>
-        <h4>(Logros)</h4>
-        <table>
-            <tr>
-                <td>(Nombre)</td>
-            </tr>
-            <tr>
-                <td>(Materia)</td>
-            </tr>
-            <tr>
-                <td>(Tema)</td>
-            </tr>
-            <tr>
-                <td>(Evaluación)</td>
-            </tr>
-            <tr>
-                <td>(Fecha)</td>
-                <td>(Mensaje)</td>
-            </tr>
-        </table>
+        <p id="score"></p>
+        <p id="achievements"></p>
+        <main id="tasks-container"></main>
         <footer>
             <a href="desarrolladores.html">Desarrolladores|Información</a>
         </footer>
+        <script src="../js/tasks.js" type="module"></script>
     </body>
 </html>
 
