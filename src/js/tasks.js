@@ -18,6 +18,21 @@ if (auth.status == 401) {
 
     const { tasks } = data;
 
-    if (tasks.length > 0) {
+    if (tasks.length == 0) {
+        tasks_container.innerText = "No hay tareas, por ahora..."
+    } else {
+        tasks.forEach((task) => {
+            const container = document.createElement("article")
+            container.innerHTML = `
+                <h3>${task.name}</h3>
+                <hr>
+                <p>${task.course}</p>
+                <p>${task.topic}</p>
+                <p>${task.evaluation}</p>
+                <hr>
+                <p>${task.finish_date}</p>
+            `
+            tasks_container.appendChild(container)
+        })
     }
 }
