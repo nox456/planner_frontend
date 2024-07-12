@@ -9,14 +9,16 @@
             <form>
                 <input type="text" placeholder="Buscar..." id="search-name"/>
                 <input type="date" id="filter-finish"/>
-                <select name="evaluation">
+                <select id="evaluation-input">
                     <option selected hidden>Evaluación</option>
+                    <option value="none">--Todas--</option>
                     <option>Examen</option>
                     <option>Exposición</option>
                     <option>Taller</option>
                 </select>
-                <select name="course">
+                <select id="course-input">
                     <option selected hidden>Materia</option>
+                    <option value="none">--Todas--</option>
                     <option>Matemática</option>
                     <option>Estadística</option>
                     <option>Informatica</option>
@@ -25,8 +27,9 @@
                     <option>Derecho</option>
                     <option>Geometría</option>
                 </select>
-                <select name="is_done">
+                <select id="is-done-input">
                     <option selected hidden>Estado</option>
+                    <option value="none">--Todas--</option>
                     <option>Hecha</option>
                     <option>No Hecha</option>
                 </select>

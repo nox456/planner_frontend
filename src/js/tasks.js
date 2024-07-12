@@ -50,9 +50,9 @@ if (auth.status == 401) {
                         </dialog>
                         <input type="checkbox" id="done-input" checked>
                         <hr>
-                        <p>${task.course}</p>
+                        <p id="course">${task.course}</p>
                         <p>${task.topic}</p>
-                        <p>${task.evaluation}</p>
+                        <p id="evaluation">${task.evaluation}</p>
                         <hr>
                         <p id="finish-date">${task.finish_date}</p>
                     `;
@@ -71,9 +71,9 @@ if (auth.status == 401) {
                         <button id="delete-button">Eliminar</button>
                         <input type="checkbox" id="done-input">
                         <hr>
-                        <p>${task.course}</p>
+                        <p id="course">${task.course}</p>
                         <p>${task.topic}</p>
-                        <p>${task.evaluation}</p>
+                        <p id="evaluation">${task.evaluation}</p>
                         <hr>
                         <p id="finish-date">${task.finish_date}</p>
                     `;
@@ -180,6 +180,65 @@ if (auth.status == 401) {
             tasks_container.innerHTML = ""
             tasks.forEach((task) => {
                 tasks_container.appendChild(task)
+            })
+        }
+    })
+    // Evaluation
+    const evaluation_input = document.querySelector("#evaluation-input")
+    evaluation_input.addEventListener("change", () => {
+        const value = evaluation_input.value        
+        if (value == "none") {
+            tasks_container.innerHTML = ""
+            allTasks.forEach((t) => {
+                tasks_container.appendChild(t)
+            })
+        } else {
+            const tasks = allTasks.filter((task) => {
+                const evaluation = task.querySelector("#evaluation").innerText
+                return evaluation == value
+            })
+            tasks_container.innerHTML = ""
+            tasks.forEach((t) => {
+                tasks_container.appendChild(t)
+            })
+        }
+    })
+    // Course 
+    const course_input = document.querySelector("#course-input")
+    course_input.addEventListener("change", () => {
+        const value = course_input.value        
+        if (value == "none") {
+            tasks_container.innerHTML = ""
+            allTasks.forEach((t) => {
+                tasks_container.appendChild(t)
+            })
+        } else {
+            const tasks = allTasks.filter((task) => {
+                const course = task.querySelector("#course").innerText
+                return course == value
+            })
+            tasks_container.innerHTML = ""
+            tasks.forEach((t) => {
+                tasks_container.appendChild(t)
+            })
+        }
+    })
+    // Is done 
+    const is_done_input = document.querySelector("#is-done-input")
+    is_done_input.addEventListener("change", () => {
+        const value = is_done_input.value        
+        if (value == "none") {
+            tasks_container.innerHTML = ""
+            allTasks.forEach((t) => {
+                tasks_container.appendChild(t)
+            })
+        } else {
+            const tasks = allTasks.filter((task) => {
+                return (task.classList.contains("task-doned") && value == "Hecha") || (!task.classList.contains("task-doned") && value == "No Hecha")
+            })
+            tasks_container.innerHTML = ""
+            tasks.forEach((t) => {
+                tasks_container.appendChild(t)
             })
         }
     })
