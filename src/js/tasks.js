@@ -33,6 +33,7 @@ if (auth.status == 401) {
                     <button id="confirm-button">Si</button>
                 </dialog>
                 <button id="delete-button">Eliminar</button>
+                <input type="checkbox" id="done-input">
                 <hr>
                 <p>${task.course}</p>
                 <p>${task.topic}</p>
@@ -59,6 +60,14 @@ if (auth.status == 401) {
                 if (tasks_container.children.length == 0) {
                     tasks_container.innerText = "No hay tareas, por ahora..."
                 }
+            })
+            document.querySelector("#done-input").addEventListener("click", async () => {
+                await fetch(`http://localhost:4000/tasks/done?id=${task.id}`, {
+                    credentials: "include",
+                    method: "PUT"
+                })
+                container.remove()
+                location.reload()
             })
         });
     }
