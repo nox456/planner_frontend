@@ -4,6 +4,7 @@ const auth = await fetch("http://localhost:4000/auth/is-authenticated", {
 if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
+    // SHOW TASKS
     const res = await fetch("http://localhost:4000/users/info", {
         credentials: "include",
     });
@@ -118,6 +119,8 @@ if (auth.status == 401) {
                 }
             });
     }
+
+    // LOGOUT
     const logout_dialog = document.querySelector("#logout-dialog");
     document.querySelector("#username").addEventListener("click", () => {
         logout_dialog.showModal();
@@ -135,4 +138,25 @@ if (auth.status == 401) {
             });
             location.href = "../index.html";
         });
+    // FILTERS
+    const allTasks = Array.from(tasks_container.children)
+    const search_name_input = document.querySelector("#search-name")
+    search_name_input.addEventListener("input", () => {
+        const value = search_name_input.value
+        if (value == "") {
+            tasks_container.innerHTML = ""
+            allTasks.forEach((t) => {
+                tasks_container.appendChild(t)
+            })
+        } else {
+            const tasks = Array.from(tasks_container.children).filter((task) => {
+                const task_name = task.querySelector("h3")
+                return task_name.innerText.startsWith(value) 
+            })
+            tasks_container.innerHTML = ""
+            tasks.forEach((t) => {
+                tasks_container.appendChild(t)
+            })
+        }
+    })
 }
