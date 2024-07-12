@@ -43,13 +43,6 @@ if (auth.status == 401) {
                 if (task.is_done) {
                     container.innerHTML = `
                         <h3>${task.name}</h3>
-                        <dialog>
-                            <h3>Eliminar Tarea</h3>
-                            <p>${task.name}</p>
-                            <p>¿Estás seguro?</p>
-                            <button id="close-button">No</button>
-                            <button id="confirm-button">Si</button>
-                        </dialog>
                         <input type="checkbox" id="done-input" checked>
                         <hr>
                         <p id="course">${task.course}</p>
@@ -63,7 +56,7 @@ if (auth.status == 401) {
                 } else {
                     container.innerHTML = `
                         <h3>${task.name}</h3>
-                        <dialog>
+                        <dialog id="delete-dialog">
                             <h3>Eliminar Tarea</h3>
                             <p>${task.name}</p>
                             <p>¿Estás seguro?</p>
@@ -72,6 +65,11 @@ if (auth.status == 401) {
                         </dialog>
                         <button id="delete-button">Eliminar</button>
                         <input type="checkbox" id="done-input">
+                        <dialog id="done-dialog">
+                            <h3>¿Marcar como Hecha?</h3>
+                            <button id="close-button">No</button>
+                            <button id="confirm-button">Si</button>
+                        </dialog>
                         <hr>
                         <p id="course">${task.course}</p>
                         <p>${task.topic}</p>
@@ -83,12 +81,12 @@ if (auth.status == 401) {
                     const delete_button =
                         container.querySelector("#delete-button");
                     delete_button.addEventListener("click", async () => {
-                        container.querySelector("dialog").showModal();
+                        container.querySelector("#delete-dialog").showModal();
                     });
                     const close_button =
                         container.querySelector("#close-button");
                     close_button.addEventListener("click", () => {
-                        container.querySelector("dialog").close();
+                        container.querySelector("#delete-dialog").close();
                     });
                     const confirm_button =
                         container.querySelector("#confirm-button");
@@ -99,7 +97,7 @@ if (auth.status == 401) {
                                 method: "DELETE",
                             },
                         );
-                        container.querySelector("dialog").close();
+                        container.querySelector("#delete-dialog").close();
                         container.remove();
                         if (tasks_container.children.length == 0) {
                             tasks_container.innerText =
@@ -107,7 +105,14 @@ if (auth.status == 401) {
                         }
                     });
                     const done_input = container.querySelector("#done-input");
+                    const done_dialog = container.querySelector("#done-dialog")
                     done_input.addEventListener("change", async () => {
+                        done_dialog.showModal()
+                    });
+                    done_dialog.querySelector("#close-button").addEventListener("click", () => {
+                        done_dialog.close()
+                    })
+                    done_dialog.querySelector("#confirm-button").addEventListener("click", async () => {
                         await fetch(
                             `${HOST}/tasks/done?id=${task.id}`,
                             {
@@ -117,7 +122,7 @@ if (auth.status == 401) {
                         );
                         container.remove();
                         location.reload();
-                    });
+                    })
                 }
             });
     }
