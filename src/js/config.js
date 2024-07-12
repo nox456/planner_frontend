@@ -1,2 +1,2 @@
-const HOST = 'https://planner-backend-uy1a.onrender.com'
+const HOST = 'http://localhost:4000'
 export default HOST

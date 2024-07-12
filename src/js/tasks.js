@@ -107,12 +107,15 @@ if (auth.status == 401) {
                     const done_input = container.querySelector("#done-input");
                     const done_dialog = container.querySelector("#done-dialog")
                     done_input.addEventListener("change", async () => {
+                        done_input.checked = false
                         done_dialog.showModal()
                     });
                     done_dialog.querySelector("#close-button").addEventListener("click", () => {
+                        done_input.checked = false
                         done_dialog.close()
                     })
                     done_dialog.querySelector("#confirm-button").addEventListener("click", async () => {
+                        done_input.checked = true
                         await fetch(
                             `${HOST}/tasks/done?id=${task.id}`,
                             {
