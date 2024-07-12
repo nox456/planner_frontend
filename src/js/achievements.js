@@ -6,6 +6,9 @@ const auth = await fetch(`${HOST}/auth/is-authenticated`, {
 if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
+    const table = document.querySelector("table")
+    table.innerHTML = '<p><b>Cargando...</b></p>'
+    document.querySelector("#username").innerHTML = '<p><b>...</b></p>'
     const res = await fetch(`${HOST}/users/info`, {
         credentials: "include",
     });
@@ -42,10 +45,9 @@ if (auth.status == 401) {
     });
     const finished = await res2.json();
     const ach_finished = finished.data
+    table.innerHTML = ''
 
     document.querySelector("#achievements-doned").innerText = `${ach_finished.length}/${ach_unfinished.length + ach_finished.length}`
-
-    const table = document.querySelector("table")
 
     ach_unfinished.forEach((ach) => {
         const row = document.createElement("tr")

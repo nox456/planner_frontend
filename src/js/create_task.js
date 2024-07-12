@@ -6,6 +6,7 @@ const auth = await fetch(`${HOST}/auth/is-authenticated`, {
 if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
+    document.querySelector("#username").innerHTML = '<p><b>...</b></p>'
     const res = await fetch(`${HOST}/users/info`, {
         credentials: "include",
     });

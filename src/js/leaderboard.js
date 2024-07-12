@@ -6,6 +6,9 @@ const auth = await fetch(`${HOST}/auth/is-authenticated`, {
 if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
+    const table = document.querySelector("table")
+    table.innerHTML = '<p><b>Cargando...</b></p>'
+    document.querySelector("#username").innerHTML = '<p><b>...</b></p>'
     const res = await fetch(`${HOST}/users/info`, {
         credentials: "include",
     });
@@ -36,8 +39,7 @@ if (auth.status == 401) {
     });
     const data1 = await res1.json();
 
-    const table = document.querySelector("table")
-    
+    table.innerHTML = ''
     data1.data.forEach((user, index) => {
         const row = document.createElement("tr")
         const pos = document.createElement("td")
