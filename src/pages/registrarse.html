@@ -5,14 +5,24 @@
         <title>Registrarse</title>
     </head>
     <body>
-        <h1>Registrarse</h1>
-        <form id="form">
-            <input type="text" id="username" placeholder="Usuario..." />
-            <input type="password" id="password" placeholder="Contraseña..." />
-            <input type="submit" value="Registrarse" />
-        </form>
-        <p id="message"></p>
+        <header>
+            <h1>Registrarse</h1>
+        </header>
+        <main>
+            <form id="form">
+                <input type="text" id="username" placeholder="Usuario..." />
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Contraseña..."
+                />
+                <input type="submit" value="Registrarse" />
+            </form>
+            <dialog>
+                <p></p>
+                <button>Aceptar</button>
+            </dialog>
+        </main>
         <script src="../js/signup.js" type="module"></script>
     </body>
 </html>
-

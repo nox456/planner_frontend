@@ -20,9 +20,13 @@ if (auth.status != 401) {
             },
             body: JSON.stringify({ username, password }),
         });
-        if (res.status == 401) {
-            document.querySelector("#message").innerText =
-                "Este usuario ya existe!";
+        if (res.status == 400) {
+            const dialog = document.querySelector("dialog")
+            dialog.showModal()
+            dialog.querySelector("p").innerText = "El usuario ya existe!"
+            dialog.querySelector("button").addEventListener("click", () => {
+                dialog.close()
+            })
         } else {
             location.href = "tareas.html";
         }
