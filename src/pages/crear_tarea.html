@@ -5,10 +5,18 @@
         <title>Crear Tarea</title>
     </head>
     <body>
-        <h1>Crear Tarea</h1>
-        <button id="username"></button>
-        <a href="clasificacion.html">Enlace tabla clasificación</a><br />
-        <a href="logros.html">Enlace lista de logros</a><br />
+        <header>
+            <h1>Crear Tarea</h1>
+            <button id="username"></button>
+            <dialog id="logout-dialog">
+                <button id="close-button">X</button>
+                <button id="logout-button">Cerrar sesion</button>
+            </dialog>
+        </header>
+        <aside>
+            <a href="clasificacion.html">Enlace tabla clasificación</a><br />
+            <a href="logros.html">Enlace lista de logros</a><br />
+        </aside>
 
         <form id="form">
             <input type="text" id="name" placeholder="Nombre..." />
@@ -22,9 +30,14 @@
                 <option>Derecho</option>
                 <option>Geometría</option>
             </select>
-            <input type="text" id="course_text" placeholder="Materia..." hidden>
+            <input
+                type="text"
+                id="course_text"
+                placeholder="Materia..."
+                hidden
+            />
             <label>
-                <input type="checkbox" id="custom-course">
+                <input type="checkbox" id="custom-course" />
                 Materia Personalizada
             </label>
             <select id="evaluation">
@@ -44,4 +57,3 @@
         <script src="../js/create_task.js" type="module"></script>
     </body>
 </html>
-

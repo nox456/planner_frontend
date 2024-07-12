@@ -62,4 +62,17 @@ if (auth.status == 401) {
             })
         });
     }
+    const logout_dialog = document.querySelector("#logout-dialog")
+    document.querySelector("#username").addEventListener("click", () => {
+        logout_dialog.showModal()
+    })
+    logout_dialog.querySelector("#close-button").addEventListener("click", () => {
+        logout_dialog.close()
+    })
+    document.querySelector("#logout-button").addEventListener("click", async() => {
+        await fetch("http://localhost:4000/auth/logout", {
+            credentials: "include"
+        })
+        location.href = '../index.html'
+    })
 }
