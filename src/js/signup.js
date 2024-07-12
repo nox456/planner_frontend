@@ -1,4 +1,4 @@
-const auth = await fetch("http://localhost:4000/auth/is-authenticated", {
+const auth = await fetch("https://planner-backend-uy1a.onrender.com/auth/is-authenticated", {
     credentials: "include",
 });
 if (auth.status != 401) {
@@ -12,7 +12,7 @@ if (auth.status != 401) {
         e.preventDefault();
         const username = username_input.value;
         const password = password_input.value;
-        const res = await fetch("http://localhost:4000/auth/signup", {
+        const res = await fetch("https://planner-backend-uy1a.onrender.com/auth/signup", {
             credentials: "include",
             method: "POST",
             headers: {

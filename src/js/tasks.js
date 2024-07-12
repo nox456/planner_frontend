@@ -1,11 +1,11 @@
-const auth = await fetch("http://localhost:4000/auth/is-authenticated", {
+const auth = await fetch("https://planner-backend-uy1a.onrender.com/auth/is-authenticated", {
     credentials: "include",
 });
 if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
     // SHOW TASKS
-    const res = await fetch("http://localhost:4000/users/info", {
+    const res = await fetch("https://planner-backend-uy1a.onrender.com/users/info", {
         credentials: "include",
     });
     const { data } = await res.json();
@@ -92,7 +92,7 @@ if (auth.status == 401) {
                         container.querySelector("#confirm-button");
                     confirm_button.addEventListener("click", async () => {
                         await fetch(
-                            `http://localhost:4000/tasks?id=${task.id}`,
+                            `https://planner-backend-uy1a.onrender.com/tasks?id=${task.id}`,
                             {
                                 method: "DELETE",
                             },
@@ -107,7 +107,7 @@ if (auth.status == 401) {
                     const done_input = container.querySelector("#done-input");
                     done_input.addEventListener("change", async () => {
                         await fetch(
-                            `http://localhost:4000/tasks/done?id=${task.id}`,
+                            `https://planner-backend-uy1a.onrender.com/tasks/done?id=${task.id}`,
                             {
                                 credentials: "include",
                                 method: "PUT",
@@ -133,7 +133,7 @@ if (auth.status == 401) {
     document
         .querySelector("#logout-button")
         .addEventListener("click", async () => {
-            await fetch("http://localhost:4000/auth/logout", {
+            await fetch("https://planner-backend-uy1a.onrender.com/auth/logout", {
                 credentials: "include",
             });
             location.href = "../index.html";

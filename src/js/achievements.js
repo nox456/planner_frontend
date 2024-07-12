@@ -1,10 +1,10 @@
-const auth = await fetch("http://localhost:4000/auth/is-authenticated", {
+const auth = await fetch("https://planner-backend-uy1a.onrender.com/auth/is-authenticated", {
     credentials: "include",
 });
 if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
-    const res = await fetch("http://localhost:4000/users/info", {
+    const res = await fetch("https://planner-backend-uy1a.onrender.com/users/info", {
         credentials: "include",
     });
     const { data } = await res.json();
@@ -23,19 +23,19 @@ if (auth.status == 401) {
     document
         .querySelector("#logout-button")
         .addEventListener("click", async () => {
-            await fetch("http://localhost:4000/auth/logout", {
+            await fetch("https://planner-backend-uy1a.onrender.com/auth/logout", {
                 credentials: "include",
             });
             location.href = "../index.html";
         });
 
-    const res1 = await fetch("http://localhost:4000/achievements/unfinished", {
+    const res1 = await fetch("https://planner-backend-uy1a.onrender.com/achievements/unfinished", {
         credentials: "include"
     });
     const unfinished = await res1.json();
     const ach_unfinished = unfinished.data
 
-    const res2 = await fetch("http://localhost:4000/achievements/finished", {
+    const res2 = await fetch("https://planner-backend-uy1a.onrender.com/achievements/finished", {
         credentials: "include"
     });
     const finished = await res2.json();

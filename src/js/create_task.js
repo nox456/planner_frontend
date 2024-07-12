@@ -1,10 +1,10 @@
-const auth = await fetch("http://localhost:4000/auth/is-authenticated", {
+const auth = await fetch("https://planner-backend-uy1a.onrender.com/auth/is-authenticated", {
     credentials: "include",
 });
 if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
-    const res = await fetch("http://localhost:4000/users/info", {
+    const res = await fetch("https://planner-backend-uy1a.onrender.com/users/info", {
         credentials: "include",
     });
     const { data } = await res.json();
@@ -39,7 +39,7 @@ if (auth.status == 401) {
         const topic = topic_input.value;
         const finish_date = finish_input.value;
 
-        const res = await fetch("http://localhost:4000/tasks/save", {
+        const res = await fetch("https://planner-backend-uy1a.onrender.com/tasks/save", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -62,7 +62,7 @@ if (auth.status == 401) {
         logout_dialog.close()
     })
     document.querySelector("#logout-button").addEventListener("click", async() => {
-        await fetch("http://localhost:4000/auth/logout", {
+        await fetch("https://planner-backend-uy1a.onrender.com/auth/logout", {
             credentials: "include"
         })
         location.href = '../index.html'
