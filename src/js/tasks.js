@@ -7,6 +7,9 @@ if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
     // SHOW TASKS
+    const tasks_container = document.querySelector("#tasks-container");
+    tasks_container.innerHTML = `<p><b>Cargando...</b></p>`
+    document.querySelector("#username").innerHTML = '<p><b>...</b></p>'
     const res = await fetch(`${HOST}/users/info`, {
         credentials: "include",
     });
@@ -17,10 +20,10 @@ if (auth.status == 401) {
     document.querySelector("#achievements").innerText =
         `Logros: ${data.achievements}`;
 
-    const tasks_container = document.querySelector("#tasks-container");
 
     const { tasks } = data;
 
+    tasks_container.innerHTML = ''
     const tasks_doned = tasks.filter((t) => t.is_done == true);
 
     document.querySelector("#tasks-doned").innerText =

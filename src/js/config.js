@@ -1,2 +1,2 @@
-const HOST = 'https://planner-frontend-f1un.onrender.com'
+const HOST = 'https://planner-backend-uy1a.onrender.com'
 export default HOST
