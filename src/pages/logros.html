@@ -1,27 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Logros</title>
-</head>
-<body>
-    <h1>Logros</h1>
-    <a href="">Usuario</a><br>
-    <a href="clasificacion.html">Enlace tabla clasificación</a><br>
-    <a href="tareas.html">Enlace lista de tareas</a><br><br>
-    <table>
-        <tr>
-            <td>(Obtenidos)</td>
-            <td>(Incompletos)</td>
-            <td>(Obtenidos/Totales)</td>
-        </tr>
-        <tr>
-            <td>(Nombre del Logro)</td>
-            <td>(Fecha de obtención)</td>
-        </tr>
-    </table>
-    <footer>
-        <a href="desarrolladores.html">Desarrolladores|Información</a>
-    </footer>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Logros</title>
+    </head>
+    <body>
+        <header>
+            <h1>Logros</h1>
+            <button id="username"></button>
+            <dialog id="logout-dialog">
+                <button id="close-button">X</button>
+                <button id="logout-button">Cerrar sesion</button>
+            </dialog>
+        </header>
+
+        <aside>
+            <a href="clasificacion.html">Enlace tabla clasificación</a><br />
+            <a href="tareas.html">Enlace lista de tareas</a><br /><br />
+        </aside>
+
+        <main>
+            <p id="achievements-doned"></p>
+            <table></table>
+        </main>
+
+        <footer>
+            <a href="desarrolladores.html">Desarrolladores|Información</a>
+        </footer>
+        <script src="../js/achievements.js" type="module"></script>
+    </body>
 </html>
+
