@@ -23,9 +23,8 @@ if (auth.status != 401) {
             },
             body: JSON.stringify({ username, password }),
         });
-        console.log(await res.json())
         if (res.status == 200) {
-            // location.href = '../pages/tareas.html'
+            location.href = '../pages/tareas.html'
         } else {
             const message = document.createElement("p")
             message.id = "message"
