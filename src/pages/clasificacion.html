@@ -1,23 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Clasificación</title>
-</head>
-<body>
-    <h1>Tabla Clasificación</h1>
-    <a href="">Usuario</a><br>
-    <a href="tareas.html">Enlace lista de tareas</a><br>
-    <a href="logros.html">Enlace lista de logros</a>
-    <table>
-        <tr>
-            <td>(Posición)</td>
-            <td>(Nombre)</td>
-            <td>(Puntos)</td>
-        </tr>
-    </table>
-    <footer>
-        <a href="desarrolladores.html">Desarrolladores|Información</a>
-    </footer>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Clasificación</title>
+    </head>
+    <body>
+        <header>
+            <h1>Tabla Clasificación</h1>
+            <button id="username"></button>
+            <dialog id="logout-dialog">
+                <button id="close-button">X</button>
+                <button id="logout-button">Cerrar sesion</button>
+            </dialog>
+        </header>
+        <aside>
+            <a href="tareas.html">Enlace lista de tareas</a><br />
+            <a href="logros.html">Enlace lista de logros</a>
+        </aside>
+        <table></table>
+        <footer>
+            <a href="desarrolladores.html">Desarrolladores|Información</a>
+        </footer>
+        <script src="../js/leaderboard.js" type="module"></script>
+    </body>
 </html>
+
