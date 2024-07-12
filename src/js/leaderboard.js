@@ -1,10 +1,12 @@
-const auth = await fetch("https://planner-backend-uy1a.onrender.com/auth/is-authenticated", {
+import HOST from "./config.js"
+
+const auth = await fetch(`${HOST}/auth/is-authenticated`, {
     credentials: "include",
 });
 if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
-    const res = await fetch("https://planner-backend-uy1a.onrender.com/users/info", {
+    const res = await fetch(`${HOST}/users/info`, {
         credentials: "include",
     });
     const { data } = await res.json();
@@ -29,7 +31,7 @@ if (auth.status == 401) {
             location.href = "../index.html";
         });
 
-    const res1 = await fetch("https://planner-backend-uy1a.onrender.com/users/leaderboard", {
+    const res1 = await fetch(`${HOST}/users/leaderboard`, {
         credentials: "include",
     });
     const data1 = await res1.json();

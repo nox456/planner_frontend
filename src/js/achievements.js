@@ -1,10 +1,12 @@
-const auth = await fetch("https://planner-backend-uy1a.onrender.com/auth/is-authenticated", {
+import HOST from "./config.js"
+
+const auth = await fetch(`${HOST}/auth/is-authenticated`, {
     credentials: "include",
 });
 if (auth.status == 401) {
     location.href = "iniciar_sesion.html";
 } else {
-    const res = await fetch("https://planner-backend-uy1a.onrender.com/users/info", {
+    const res = await fetch(`${HOST}/users/info`, {
         credentials: "include",
     });
     const { data } = await res.json();
@@ -23,26 +25,24 @@ if (auth.status == 401) {
     document
         .querySelector("#logout-button")
         .addEventListener("click", async () => {
-            await fetch("https://planner-backend-uy1a.onrender.com/auth/logout", {
+            await fetch(`${HOST}/auth/logout`, {
                 credentials: "include",
             });
             location.href = "../index.html";
         });
 
-    const res1 = await fetch("https://planner-backend-uy1a.onrender.com/achievements/unfinished", {
+    const res1 = await fetch(`${HOST}/achievements/unfinished`, {
         credentials: "include"
     });
     const unfinished = await res1.json();
     const ach_unfinished = unfinished.data
 
-    const res2 = await fetch("https://planner-backend-uy1a.onrender.com/achievements/finished", {
+    const res2 = await fetch(`${HOST}/achievements/finished`, {
         credentials: "include"
     });
     const finished = await res2.json();
     const ach_finished = finished.data
 
-    console.log(ach_unfinished)
-    console.log(ach_finished)
     document.querySelector("#achievements-doned").innerText = `${ach_finished.length}/${ach_unfinished.length + ach_finished.length}`
 
     const table = document.querySelector("table")
