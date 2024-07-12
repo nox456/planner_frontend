@@ -54,7 +54,7 @@ if (auth.status == 401) {
                         <p>${task.topic}</p>
                         <p>${task.evaluation}</p>
                         <hr>
-                        <p>${task.finish_date}</p>
+                        <p id="finish-date">${task.finish_date}</p>
                     `;
                     container.classList.add("task-doned")
                     tasks_container.appendChild(container);
@@ -75,7 +75,7 @@ if (auth.status == 401) {
                         <p>${task.topic}</p>
                         <p>${task.evaluation}</p>
                         <hr>
-                        <p>${task.finish_date}</p>
+                        <p id="finish-date">${task.finish_date}</p>
                     `;
                     tasks_container.appendChild(container);
                     const delete_button =
@@ -140,6 +140,7 @@ if (auth.status == 401) {
         });
     // FILTERS
     const allTasks = Array.from(tasks_container.children)
+    // Name
     const search_name_input = document.querySelector("#search-name")
     search_name_input.addEventListener("input", () => {
         const value = search_name_input.value
@@ -156,6 +157,29 @@ if (auth.status == 401) {
             tasks_container.innerHTML = ""
             tasks.forEach((t) => {
                 tasks_container.appendChild(t)
+            })
+        }
+    })
+    // Finish date
+    const finish_input = document.querySelector("#filter-finish")
+    finish_input.addEventListener("change", () => {
+        let value = finish_input.value
+        if (value == "") {
+            tasks_container.innerHTML = ""
+            allTasks.forEach((t) => {
+                tasks_container.appendChild(t)
+            })
+        } else {
+            const tasks = Array.from(tasks_container.children).filter((task) => {
+                const task_finish_date = new Date(task.querySelector("#finish-date").innerText)
+                const finish_date = `${task_finish_date.getFullYear()}-${task_finish_date.getMonth()}-${task_finish_date.getDate()}`
+                value = new Date(value)
+                const value_formated =  `${value.getFullYear()}-${value.getMonth()}-${value.getDate() + 1}`
+                return finish_date == value_formated
+            })
+            tasks_container.innerHTML = ""
+            tasks.forEach((task) => {
+                tasks_container.appendChild(task)
             })
         }
     })
