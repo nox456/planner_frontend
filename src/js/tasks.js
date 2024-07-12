@@ -16,7 +16,11 @@ if (auth.status == 401) {
 
     const tasks_container = document.querySelector("#tasks-container");
 
-    const { tasks } = data;
+    const { tasks } = data; 
+
+    const tasks_doned = tasks.filter((t) => t.is_done == true)
+
+    document.querySelector("#tasks-doned").innerText = `${tasks_doned.length}/${tasks.length}`
 
     if (tasks.length == 0) {
         tasks_container.innerText = "No hay tareas, por ahora...";
@@ -61,7 +65,8 @@ if (auth.status == 401) {
                     tasks_container.innerText = "No hay tareas, por ahora..."
                 }
             })
-            document.querySelector("#done-input").addEventListener("click", async () => {
+            const done_input = container.querySelector("#done-input")
+            done_input.addEventListener("change", async () => {
                 await fetch(`http://localhost:4000/tasks/done?id=${task.id}`, {
                     credentials: "include",
                     method: "PUT"
