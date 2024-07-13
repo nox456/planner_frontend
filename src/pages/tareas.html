@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="../styles/tasks.css" />
     </head>
     <body>
-        <header>
+        <header id="page-header">
             <h1>Tareas</h1>
             <button id="username"></button>
             <dialog id="logout-dialog">
@@ -15,6 +15,7 @@
             </dialog>
         </header>
         <main>
+            <header id="main-header">
                 <form>
                     <input
                         type="text"
@@ -47,23 +48,50 @@
                         <option>No Hecha</option>
                     </select>
                 </form>
-        </main>
-
-        <aside>
-            <a href="clasificacion.html">Enlace tabla clasificación</a><br />
-            <a href="logros.html">Enlace lista de logros</a><br />
-        </aside>
-
-        <main>
-            <p id="tasks-doned"></p>
-            <a href="crear_tarea.html">Crear Tarea</a>
+                <div>
+                    <p id="tasks-doned"></p>
+                    <a href="crear_tarea.html">Crear Tarea</a>
+                </div>
+            </header>
+            <aside id="links-sidebar">
+                <a href="clasificacion.html">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="M6 21H3a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1zm7 0h-3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v17a1 1 0 0 1-1 1zm7 0h-3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1z"
+                        ></path>
+                    </svg>
+                    Clasificación
+                </a>
+                <a href="logros.html">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="M12 22c3.859 0 7-3.141 7-7s-3.141-7-7-7c-3.86 0-7 3.141-7 7s3.14 7 7 7zm0-12c2.757 0 5 2.243 5 5s-2.243 5-5 5-5-2.243-5-5 2.243-5 5-5zm-1-8H7v5.518a8.957 8.957 0 0 1 4-1.459V2zm6 0h-4v4.059a8.957 8.957 0 0 1 4 1.459V2z"
+                        ></path>
+                        <path
+                            d="m10.019 15.811-.468 2.726L12 17.25l2.449 1.287-.468-2.726 1.982-1.932-2.738-.398L12 11l-1.225 2.481-2.738.398z"
+                        ></path>
+                    </svg>
+                    Logros
+                </a>
+            </aside>
             <section id="tasks-container"></section>
+            <aside id="info-sidebar">
+                <p id="score"></p>
+                <p id="achievements"></p>
+            </aside>
         </main>
-
-        <aside>
-            <p id="score"></p>
-            <p id="achievements"></p>
-        </aside>
 
         <footer>
             <a href="desarrolladores.html">Desarrolladores|Información</a>

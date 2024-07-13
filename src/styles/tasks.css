@@ -10,7 +10,7 @@ body {
     gap: 1.5em;
 }
 
-header {
+#page-header {
     h1 {
         user-select: none;
     }
@@ -33,33 +33,117 @@ header {
     }
 }
 
-form {
-    display: flex;
-    justify-content: center;
-    gap: 0.5em;
-    input {
-        border-radius: 0.3em;
-        border: 2px solid #ccc;
-        padding-inline: 0.7em;
-        transition: border 200ms;
+main {
+    display: grid;
+    grid-template-rows: 8% 92%;
+    grid-template-columns: 8% 84% 8%;
+    padding: 0.5em;
+    #main-header {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        border-bottom: 2px solid #bbb;
+        padding-bottom: 0.2em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        form {
+            display: flex;
+            grid-row-start: 1;
+            grid-row-end: 1;
+            justify-content: center;
+            gap: 0.5em;
+            input {
+                border-radius: 0.3em;
+                border: 2px solid #ccc;
+                padding-inline: 0.7em;
+                transition: border 200ms;
+            }
+            input:focus {
+                outline: none;
+                background-color: #fff;
+                border: 2px solid #777;
+            }
+            #search-name {
+                padding: 0.4em 0.7em;
+            }
+            select {
+                padding-inline: 0.7em;
+                border-radius: 0.3em;
+                border: 1px solid #ccc;
+                outline: none;
+                background-color: #fff;
+                transition: border-color 300ms;
+            }
+            select:focus {
+                border-color: #777;
+            }
+        }
+        div {
+            display: flex;
+            gap: 1em;
+            a {
+                background-color: #FFF;
+                color: #888;
+                padding: 0.3em 0.9em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0.3em;
+                border: 2px solid #888;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 200ms, border-color 200ms;
+            }
+            a:hover {
+                border: 2px solid #000;
+                color: #000;
+            }
+            p {
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+        }
     }
-    input:focus {
-        outline: none;
-        background-color: #fff;
-        border: 2px solid #777;
+    #links-sidebar {
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        padding: .5em .3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5em;
+        border-right: 2px solid #bbb;
+        a {
+            border: 2px solid #CCC;
+            padding: .3em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: .5em;
+            width: 100%;
+            font-size: .8em;
+            text-decoration: none;
+            color: #888;
+            svg {
+                fill: currentColor;
+            }
+            transition: color 200ms, border-color 200ms;
+        }
+        a:hover {
+            color: #000;
+            border-color: #000;
+        }
     }
-    #search-name {
-        padding: 0.4em 0.7em;
+    #tasks-container {
+        grid-row-start: 2;
+        grid-column-start: 2;
+        grid-column-end: 2;
     }
-    select {
-        padding-inline: 0.7em;
-        border-radius: 0.3em;
-        border: 1px solid #ccc;
-        outline: none;
-        background-color: #fff;
-        transition: border-color 300ms;
-    }
-    select:focus {
-        border-color: #777;
+    #info-sidebar {
+        grid-row-start: 2;
+        grid-column-start: 3;
     }
 }
