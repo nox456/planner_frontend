@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+header {
+    h1 {
+        user-select: none;
+    }
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 0.8em 0.1em #000;
+    #username {
+        padding-inline: 1em;
+        width: 10%;
+        border-radius: 0.7em;
+        background-color: #fff;
+        outline: none;
+        border: 2px solid #ccc;
+        cursor: pointer;
+        transition: border 200ms;
+    }
+    #username:hover {
+        border: 2px solid #000;
+    }
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    input {
+        border-radius: 0.3em;
+        border: 2px solid #ccc;
+        padding-inline: 0.7em;
+        transition: border 200ms;
+    }
+    input:focus {
+        outline: none;
+        background-color: #fff;
+        border: 2px solid #777;
+    }
+    #search-name {
+        padding: 0.4em 0.7em;
+    }
+    select {
+        padding-inline: 0.7em;
+        border-radius: 0.3em;
+        border: 1px solid #ccc;
+        outline: none;
+        background-color: #fff;
+        transition: border-color 300ms;
+    }
+    select:focus {
+        border-color: #777;
+    }
+}

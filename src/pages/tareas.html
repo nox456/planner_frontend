@@ -3,43 +3,51 @@
     <head>
         <meta charset="UTF-8" />
         <title>Tareas - PlannerApp</title>
+        <link rel="stylesheet" href="../styles/tasks.css" />
     </head>
     <body>
         <header>
-            <form>
-                <input type="text" placeholder="Buscar..." id="search-name"/>
-                <input type="date" id="filter-finish"/>
-                <select id="evaluation-input">
-                    <option selected hidden>Evaluación</option>
-                    <option value="none">--Todas--</option>
-                    <option>Examen</option>
-                    <option>Exposición</option>
-                    <option>Taller</option>
-                </select>
-                <select id="course-input">
-                    <option selected hidden>Materia</option>
-                    <option value="none">--Todas--</option>
-                    <option>Matemática</option>
-                    <option>Estadística</option>
-                    <option>Informatica</option>
-                    <option>Programación</option>
-                    <option>Lógica</option>
-                    <option>Derecho</option>
-                    <option>Geometría</option>
-                </select>
-                <select id="is-done-input">
-                    <option selected hidden>Estado</option>
-                    <option value="none">--Todas--</option>
-                    <option>Hecha</option>
-                    <option>No Hecha</option>
-                </select>
-            </form>
+            <h1>Tareas</h1>
             <button id="username"></button>
             <dialog id="logout-dialog">
                 <button id="close-button">X</button>
                 <button id="logout-button">Cerrar sesion</button>
             </dialog>
         </header>
+        <main>
+                <form>
+                    <input
+                        type="text"
+                        placeholder="Buscar..."
+                        id="search-name"
+                    />
+                    <input type="date" id="filter-finish" />
+                    <select id="evaluation-input">
+                        <option selected hidden>Evaluación</option>
+                        <option value="none">--Todas--</option>
+                        <option>Examen</option>
+                        <option>Exposición</option>
+                        <option>Taller</option>
+                    </select>
+                    <select id="course-input">
+                        <option selected hidden>Materia</option>
+                        <option value="none">--Todas--</option>
+                        <option>Matemática</option>
+                        <option>Estadística</option>
+                        <option>Informatica</option>
+                        <option>Programación</option>
+                        <option>Lógica</option>
+                        <option>Derecho</option>
+                        <option>Geometría</option>
+                    </select>
+                    <select id="is-done-input">
+                        <option selected hidden>Estado</option>
+                        <option value="none">--Todas--</option>
+                        <option>Hecha</option>
+                        <option>No Hecha</option>
+                    </select>
+                </form>
+        </main>
 
         <aside>
             <a href="clasificacion.html">Enlace tabla clasificación</a><br />
