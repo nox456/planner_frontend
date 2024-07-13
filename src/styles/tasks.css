@@ -12,7 +12,9 @@ body {
 
 #page-header {
     grid-row-start: 1;
+    background-color: #48B;
     h1 {
+        color: #FFF;
         user-select: none;
     }
     padding: 0.5em;
@@ -23,14 +25,17 @@ body {
         padding-inline: 1em;
         width: 10%;
         border-radius: 0.7em;
-        background-color: #fff;
+        background-color: transparent;
         outline: none;
-        border: 2px solid #ccc;
+        color: #000;
+        border: 2px solid #000;
         cursor: pointer;
-        transition: border 200ms;
+        transition: background-color 200ms, color 200ms, border 200ms;
     }
     #username:hover {
-        border: 2px solid #000;
+        border: 2px solid transparent;
+        color: #FFF;
+        background-color: #0004;
     }
     dialog[open] {
         display: flex;
@@ -41,7 +46,7 @@ body {
         top: 46%;
         left: 46%;
         padding: 0.4em 0.6em;
-        border: 3px solid #ccc;
+        border: 3px solid #48b;
         border-radius: 0.3em;
         flex-direction: column;
         gap: 0.5em;
@@ -60,18 +65,18 @@ body {
         }
         #logout-button {
             background-color: #fff;
-            border: 2px solid #ccc;
+            border: 2px solid #48b;
             padding: 0.3em 0.5em;
             border-radius: 0.3em;
             color: #888;
             transition:
                 color 200ms,
-                border 200ms;
+                background-color 200ms;
             cursor: pointer;
         }
         #logout-button:hover {
-            color: #000;
-            border: 2px solid #000;
+            color: #FFF;
+            background-color: #48b;
         }
     }
 }
@@ -100,14 +105,13 @@ body {
             gap: 0.5em;
             input {
                 border-radius: 0.3em;
-                border: 2px solid #ccc;
+                border: 2px solid #48b;
                 padding-inline: 0.7em;
                 transition: border 200ms;
             }
             input:focus {
                 outline: none;
                 background-color: #fff;
-                border: 2px solid #777;
             }
             #search-name {
                 padding: 0.4em 0.7em;
@@ -115,13 +119,10 @@ body {
             select {
                 padding-inline: 0.7em;
                 border-radius: 0.3em;
-                border: 1px solid #ccc;
+                border: 1px solid #48b;
                 outline: none;
                 background-color: #fff;
                 transition: border-color 300ms;
-            }
-            select:focus {
-                border-color: #777;
             }
         }
         div {
@@ -129,22 +130,23 @@ body {
             gap: 1em;
             a {
                 background-color: #fff;
-                color: #888;
+                color: #000;
                 padding: 0.3em 0.9em;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 border-radius: 0.3em;
-                border: 2px solid #888;
+                border: 2px solid #48b;
                 text-decoration: none;
                 font-weight: bold;
                 transition:
                     color 200ms,
-                    border-color 200ms;
+                    border-color 200ms,
+                    background-color 200ms;
             }
             a:hover {
-                border: 2px solid #000;
-                color: #000;
+                background-color: #48b;
+                color: #FFF;
             }
             p {
                 font-size: 1.3em;
@@ -163,7 +165,7 @@ body {
         gap: 0.5em;
         border-right: 2px solid #bbb;
         a {
-            border: 2px solid #ccc;
+            border: 2px solid #48b;
             padding: 0.3em;
             display: flex;
             flex-direction: column;
@@ -179,11 +181,13 @@ body {
             }
             transition:
                 color 200ms,
-                border-color 200ms;
+                border-color 200ms,
+                background-color 200ms;
         }
         a:hover {
-            color: #000;
-            border-color: #000;
+            color: #FFF;
+            background-color: #48b;
+            border-color: #48b;
         }
     }
     #tasks-container {
@@ -201,7 +205,7 @@ body {
             width: 25%;
             height: fit-content;
             padding: 0.8em;
-            border: 2px solid #CCC;
+            background-color: #48b;
             border-radius: .4em;
             display: flex;
             flex-direction: column;
@@ -209,7 +213,8 @@ body {
                 display: flex;
                 justify-content: space-between;
                 padding: .3em 0;
-                border-bottom: 2px solid #CCC;
+                color: #FFF;
+                border-bottom: 2px solid #FFF;
                 div {
                     width: 15%;
                 }
@@ -217,11 +222,11 @@ body {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background-color: #fff;
-                    border: 2px solid #a00;
+                    background-color: transparent;
+                    border: 2px solid #700;
                     border-radius: 0.3em;
                     width: 15%;
-                    color: #a00;
+                    color: #700;
                     svg {
                         fill: currentColor;
                         width: 1.3em;
@@ -241,7 +246,6 @@ body {
                 }
 
                 #done-input {
-                    border: 2px solid #ccc;
                     width: 15%;
                     cursor: pointer;
                     border-radius: 0.3em;
@@ -258,35 +262,35 @@ body {
                 justify-content: center;
                 padding: .7em 0;
                 p {
-                    color: #555;
+                    color: #FFF;
                     display: flex;
                     align-items: center;
                     gap: .8em;
                     user-select: none;
                     svg {
                         fill: currentColor;
-                        color: #555;
                         width: 1.1em;
+                        color: #000;
                     }
                 }
             }
             footer {
-                color: #555;
+                color: #FFF;
                 border-top: 2px solid #CCC;
                 display: flex;
                 justify-content: center;
             }
-            transition: border 200ms;
+            transition: box-shadow 100ms;
         }
         article:hover:not(.task-doned) {
-            border: 2px solid #000;
+            box-shadow: 0 0 0.8em 0.1em #000;
         }
         article.task-doned {
-            background-color: #EEE;
+            background-color: #8ad;
             user-select: none;
             pointer-events: none;
             header h3 {
-                color: #555;
+                color: #FFF;
             }
         }
         #delete-dialog[open] {
@@ -298,7 +302,7 @@ body {
             top: 40%;
             left: 41%;
             padding: 0.4em 0.6em;
-            border: 3px solid #ccc;
+            border: 3px solid #48b;
             border-radius: 0.3em;
             flex-direction: column;
             align-items: center;
@@ -311,19 +315,19 @@ body {
             }
             div button {
                 background-color: #fff;
-                border: 2px solid #ccc;
-                border-radius: 0.3em;
+                border-radius: .3em;
+                border: 2px solid #48b;
                 padding: 0.3em 0.5em;
                 width: 60%;
                 color: #888;
                 transition:
                     color 200ms,
-                    border 200ms;
+                    background-color 200ms;
                 cursor: pointer;
             }
             div button:hover {
-                color: #000;
-                border: 2px solid #000;
+                color: #FFF;
+                background-color: #48b;
             }
         }
     }
@@ -347,7 +351,7 @@ body {
             svg {
                 fill: currentColor;
                 width: 1em;
-                color: #888;
+                color: #48b;
             }
         }
     }
@@ -356,10 +360,10 @@ body {
 #page-footer {
     grid-row-start: 3;
     padding: 1em .5em;
-    border-top: 2px solid #CCC;
+    background-color: #48B;
     box-shadow: 0 0 0.8em 0.1em #000;
     a {
         text-decoration: none;
-        color: #555;
+        color: #FFF;
     }
 }
