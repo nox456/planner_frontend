@@ -310,7 +310,13 @@ body {
             user-select: none;
             pointer-events: none;
             header h3 {
-                color: #FFF;
+                color: #CCC;
+            }
+            main p {
+                color: #CCC;
+            }
+            footer p {
+                color: #CCC;
             }
         }
         #delete-dialog[open] {
