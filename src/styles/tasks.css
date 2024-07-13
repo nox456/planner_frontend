@@ -50,26 +50,29 @@ body {
         border: 3px solid #48b;
         border-radius: 0.3em;
         flex-direction: column;
+        background-color: #0009;
         gap: 0.5em;
         #close-button {
             align-self: flex-end;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #fff;
+            background-color: transparent;
             cursor: pointer;
             border: none;
+            color: #FFF;
             svg {
+                fill: currentColor;
                 width: 1.4em;
                 height: 1.4em;
             }
         }
         #logout-button {
-            background-color: #fff;
+            background-color: transparent;
             border: 2px solid #48b;
             padding: 0.3em 0.5em;
             border-radius: 0.3em;
-            color: #888;
+            color: #FFF;
             transition:
                 color 200ms,
                 background-color 200ms;
