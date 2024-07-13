@@ -12,19 +12,21 @@ body {
 
 #page-header {
     grid-row-start: 1;
-    background-color: #48B;
+    background-image: linear-gradient(to bottom right, aqua, blue);
     h1 {
         color: #FFF;
         user-select: none;
     }
-    padding: 0.5em;
+    padding: 0.2em 0.5em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     box-shadow: 0 0 0.8em 0.1em #000;
     z-index: 10;
     #username {
         padding-inline: 1em;
         width: 10%;
+        height: 100%;
         border-radius: 0.7em;
         background-color: transparent;
         outline: none;
@@ -41,10 +43,10 @@ body {
     dialog[open] {
         display: flex;
         width: 8%;
-        height: 8%;
+        height: 10%;
     }
     dialog {
-        top: 46%;
+        top: 45%;
         left: 46%;
         padding: 0.4em 0.6em;
         border: 3px solid #48b;
@@ -157,11 +159,10 @@ body {
                 font-weight: bold;
                 transition:
                     color 200ms,
-                    border-color 200ms,
-                    background-color 200ms;
+                    border-color 200ms;
             }
             a:hover {
-                background-color: #48b;
+                background-image: linear-gradient(to bottom right, aqua, blue);
                 color: #FFF;
             }
             p {
@@ -205,7 +206,7 @@ body {
         }
         a:hover {
             color: #FFF;
-            background-color: #48b;
+            background-image: linear-gradient(to bottom right, aqua, blue);
             border-color: #48b;
         }
     }
@@ -214,6 +215,7 @@ body {
         grid-row-start: 2;
         grid-column-start: 2;
         grid-column-end: 2;
+        color: #FFF;
         padding: 0.7em;
         background-color: #0009;
         border-radius: .4em;
@@ -430,8 +432,11 @@ body {
 #page-footer {
     grid-row-start: 3;
     padding: 1em .5em;
-    background-color: #48B;
+    background-image: linear-gradient(to bottom right, aqua, blue);
     box-shadow: 0 0 0.8em 0.1em #000;
+    display: flex;
+    align-items: center;
+    justify-content: end;
     a {
         text-decoration: none;
         color: #FFF;

@@ -1,13 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>PlannerApp</title>
-</head>
-<body>
-    <H1>Bienvenidos a PlannerApp</H1>
-    <a href="pages/iniciar_sesion.html">Iniciar sesión</a><br>
-    <a href="pages/registrarse.html">Registrarse</a>
-    <script src="js/main.js" type="module"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>PlannerApp</title>
+        <link rel="stylesheet" href="styles/index.css" />
+    </head>
+    <body>
+        <header>
+            <h1 class="title">Bienvenidos a PlannerApp</h1>
+        </header>
+        <main>
+            <div class="container">
+                <div class="text">
+                    <button style="margin-bottom: 30px">
+                        <div>
+                            <a href="./pages/iniciar_sesion.html"
+                                >Iniciar sesión</a
+                            >
+                        </div>
+                    </button>
+                    <button style="margin-top: 30px">
+                        <div>
+                            <a href="./pages/registrarse.html">Registrarse</a>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </main>
+        <script src="js/main.js" type="module"></script>
+    </body>
 </html>
