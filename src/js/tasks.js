@@ -1,4 +1,4 @@
-import HOST from "./config.js"
+import HOST from "./config.js";
 
 const auth = await fetch(`${HOST}/auth/is-authenticated`, {
     credentials: "include",
@@ -8,8 +8,8 @@ if (auth.status == 401) {
 } else {
     // SHOW TASKS
     const tasks_container = document.querySelector("#tasks-container");
-    tasks_container.innerHTML = `<p><b>Cargando...</b></p>`
-    document.querySelector("#username").innerHTML = '<p><b>...</b></p>'
+    tasks_container.innerHTML = `<p><b>Cargando...</b></p>`;
+    document.querySelector("#username").innerHTML = "<p><b>...</b></p>";
     const res = await fetch(`${HOST}/users/info`, {
         credentials: "include",
     });
@@ -17,18 +17,17 @@ if (auth.status == 401) {
 
     document.querySelector("#username").innerText = data.username;
 
-    const score = document.createElement("span")
-    score.innerHTML = data.score
-    document.querySelector("#score").appendChild(score)
+    const score = document.createElement("span");
+    score.innerHTML = data.score;
+    document.querySelector("#score").appendChild(score);
 
-    const ach = document.createElement("span")
-    ach.innerHTML = data.achievements
-    document.querySelector("#achievements").appendChild(ach)
-
+    const ach = document.createElement("span");
+    ach.innerHTML = data.achievements;
+    document.querySelector("#achievements").appendChild(ach);
 
     const { tasks } = data;
 
-    tasks_container.innerHTML = ''
+    tasks_container.innerHTML = "";
     const tasks_doned = tasks.filter((t) => t.is_done == true);
 
     document.querySelector("#tasks-doned").innerText =
@@ -51,41 +50,68 @@ if (auth.status == 401) {
                 if (task.is_done) {
                     container.innerHTML = `
                         <h3>${task.name}</h3>
-                        <input type="checkbox" id="done-input" checked>
-                        <hr>
+                        <input type="checkbox" id="done-input" checked> <hr>
                         <p id="course">${task.course}</p>
                         <p>${task.topic}</p>
                         <p id="evaluation">${task.evaluation}</p>
                         <hr>
                         <p id="finish-date">${task.finish_date}</p>
                     `;
-                    container.classList.add("task-doned")
+                    container.classList.add("task-doned");
                     tasks_container.appendChild(container);
                 } else {
                     container.innerHTML = `
-                        <h3>${task.name}</h3>
-                        <dialog id="delete-dialog">
-                            <h3>Eliminar Tarea</h3>
-                            <p>${task.name}</p>
-                            <b>¿Estás seguro?</b>
-                            <div>
+                        <header>
+                            <button id="delete-button" title="Eliminar">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    style="transform:; msfilter:"
+                                >
+                                    <path
+                                        d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
+                                    ></path>
+                                </svg>
+                            </button>
+                            <h3>${task.name}</h3>
+                            <input type="checkbox" id="done-input">
+                            <dialog id="delete-dialog">
+                                <h3>Eliminar Tarea</h3>
+                                <p>${task.name}</p>
+                                <b>¿Estás seguro?</b>
+                                <div>
+                                    <button id="close-button">No</button>
+                                    <button id="confirm-button">Si</button>
+                                </div>
+                            </dialog>
+                            <dialog id="done-dialog">
+                                <h3>¿Marcar como Hecha?</h3>
                                 <button id="close-button">No</button>
                                 <button id="confirm-button">Si</button>
-                            </div>
-                        </dialog>
-                        <button id="delete-button">Eliminar</button>
-                        <input type="checkbox" id="done-input">
-                        <dialog id="done-dialog">
-                            <h3>¿Marcar como Hecha?</h3>
-                            <button id="close-button">No</button>
-                            <button id="confirm-button">Si</button>
-                        </dialog>
-                        <hr>
-                        <p id="course">${task.course}</p>
-                        <p>${task.topic}</p>
-                        <p id="evaluation">${task.evaluation}</p>
-                        <hr>
-                        <p id="finish-date">${task.finish_date}</p>
+                            </dialog>
+                        </header>
+                        <main>
+                            <p id="course">
+                                ${task.course}
+                            </p>
+                            <p>
+                                ${task.topic}
+                            </p>
+                            <p id="evaluation">
+                                ${task.evaluation}
+                            </p>
+                        </main>
+                        <footer>
+                            <p id="finish-date">
+                                ${new Date(task.finish_date).getDate()}
+                                /
+                                ${new Date(task.finish_date).getMonth()}
+                                /
+                                ${new Date(task.finish_date).getFullYear()}
+                            </p>
+                        </footer>
                     `;
                     tasks_container.appendChild(container);
                     const delete_button =
@@ -101,12 +127,9 @@ if (auth.status == 401) {
                     const confirm_button =
                         container.querySelector("#confirm-button");
                     confirm_button.addEventListener("click", async () => {
-                        await fetch(
-                            `${HOST}/tasks?id=${task.id}`,
-                            {
-                                method: "DELETE",
-                            },
-                        );
+                        await fetch(`${HOST}/tasks?id=${task.id}`, {
+                            method: "DELETE",
+                        });
                         container.querySelector("#delete-dialog").close();
                         container.remove();
                         document.querySelector("#tasks-doned").innerText =
@@ -117,27 +140,28 @@ if (auth.status == 401) {
                         }
                     });
                     const done_input = container.querySelector("#done-input");
-                    const done_dialog = container.querySelector("#done-dialog")
+                    const done_dialog = container.querySelector("#done-dialog");
                     done_input.addEventListener("change", async () => {
-                        done_input.checked = false
-                        done_dialog.showModal()
+                        done_input.checked = false;
+                        done_dialog.showModal();
                     });
-                    done_dialog.querySelector("#close-button").addEventListener("click", () => {
-                        done_input.checked = false
-                        done_dialog.close()
-                    })
-                    done_dialog.querySelector("#confirm-button").addEventListener("click", async () => {
-                        done_input.checked = true
-                        await fetch(
-                            `${HOST}/tasks/done?id=${task.id}`,
-                            {
+                    done_dialog
+                        .querySelector("#close-button")
+                        .addEventListener("click", () => {
+                            done_input.checked = false;
+                            done_dialog.close();
+                        });
+                    done_dialog
+                        .querySelector("#confirm-button")
+                        .addEventListener("click", async () => {
+                            done_input.checked = true;
+                            await fetch(`${HOST}/tasks/done?id=${task.id}`, {
                                 credentials: "include",
                                 method: "PUT",
-                            },
-                        );
-                        container.remove();
-                        location.reload();
-                    })
+                            });
+                            container.remove();
+                            location.reload();
+                        });
                 }
             });
     }
@@ -161,107 +185,118 @@ if (auth.status == 401) {
             location.href = "../index.html";
         });
     // FILTERS
-    const allTasks = Array.from(tasks_container.children)
+    const allTasks = Array.from(tasks_container.children);
     // Name
-    const search_name_input = document.querySelector("#search-name")
+    const search_name_input = document.querySelector("#search-name");
     search_name_input.addEventListener("input", () => {
-        const value = search_name_input.value
+        const value = search_name_input.value;
         if (value == "") {
-            tasks_container.innerHTML = ""
+            tasks_container.innerHTML = "";
             allTasks.forEach((t) => {
-                tasks_container.appendChild(t)
-            })
+                tasks_container.appendChild(t);
+            });
         } else {
-            const tasks = Array.from(tasks_container.children).filter((task) => {
-                const task_name = task.querySelector("h3")
-                return task_name.innerText.startsWith(value) 
-            })
-            tasks_container.innerHTML = ""
+            const tasks = Array.from(tasks_container.children).filter(
+                (task) => {
+                    const task_name = task.querySelector("h3");
+                    return task_name.innerText.startsWith(value);
+                },
+            );
+            tasks_container.innerHTML = "";
             tasks.forEach((t) => {
-                tasks_container.appendChild(t)
-            })
+                tasks_container.appendChild(t);
+            });
         }
-    })
+    });
     // Finish date
-    const finish_input = document.querySelector("#filter-finish")
+    const finish_input = document.querySelector("#filter-finish");
     finish_input.addEventListener("change", () => {
-        let value = finish_input.value
+        let value = finish_input.value;
         if (value == "") {
-            tasks_container.innerHTML = ""
+            tasks_container.innerHTML = "";
             allTasks.forEach((t) => {
-                tasks_container.appendChild(t)
-            })
+                tasks_container.appendChild(t);
+            });
         } else {
-            const tasks = Array.from(tasks_container.children).filter((task) => {
-                const task_finish_date = new Date(task.querySelector("#finish-date").innerText)
-                const finish_date = `${task_finish_date.getFullYear()}-${task_finish_date.getMonth()}-${task_finish_date.getDate()}`
-                value = new Date(value)
-                const value_formated =  `${value.getFullYear()}-${value.getMonth()}-${value.getDate() + 1}`
-                return finish_date == value_formated
-            })
-            tasks_container.innerHTML = ""
+            const tasks = Array.from(tasks_container.children).filter(
+                (task) => {
+                    const task_finish_date = new Date(
+                        task.querySelector("#finish-date").innerText,
+                    );
+                    const finish_date = `${task_finish_date.getFullYear()}-${task_finish_date.getMonth()}-${task_finish_date.getDate()}`;
+                    value = new Date(value);
+                    const value_formated = `${value.getFullYear()}-${value.getMonth()}-${value.getDate() + 1}`;
+                    return finish_date == value_formated;
+                },
+            );
+            tasks_container.innerHTML = "";
             tasks.forEach((task) => {
-                tasks_container.appendChild(task)
-            })
+                tasks_container.appendChild(task);
+            });
         }
-    })
+    });
     // Evaluation
-    const evaluation_input = document.querySelector("#evaluation-input")
+    const evaluation_input = document.querySelector("#evaluation-input");
     evaluation_input.addEventListener("change", () => {
-        const value = evaluation_input.value        
+        const value = evaluation_input.value;
         if (value == "none") {
-            tasks_container.innerHTML = ""
+            tasks_container.innerHTML = "";
             allTasks.forEach((t) => {
-                tasks_container.appendChild(t)
-            })
+                tasks_container.appendChild(t);
+            });
         } else {
             const tasks = allTasks.filter((task) => {
-                const evaluation = task.querySelector("#evaluation").innerText
-                return evaluation == value
-            })
-            tasks_container.innerHTML = ""
+                const evaluation = task.querySelector("#evaluation").innerText;
+                return evaluation == value;
+            });
+            tasks_container.innerHTML = "";
             tasks.forEach((t) => {
-                tasks_container.appendChild(t)
-            })
+                tasks_container.appendChild(t);
+            });
         }
-    })
-    // Course 
-    const course_input = document.querySelector("#course-input")
+    });
+    // Course
+    const course_input = document.querySelector("#course-input");
     course_input.addEventListener("change", () => {
-        const value = course_input.value        
+        const value = course_input.value;
         if (value == "none") {
-            tasks_container.innerHTML = ""
+            tasks_container.innerHTML = "";
             allTasks.forEach((t) => {
-                tasks_container.appendChild(t)
-            })
+                tasks_container.appendChild(t);
+            });
         } else {
             const tasks = allTasks.filter((task) => {
-                const course = task.querySelector("#course").innerText
-                return course == value
-            })
-            tasks_container.innerHTML = ""
+                const course = task.querySelector("#course").innerText;
+                return course == value;
+            });
+            tasks_container.innerHTML = "";
             tasks.forEach((t) => {
-                tasks_container.appendChild(t)
-            })
+                tasks_container.appendChild(t);
+            });
         }
-    })
-    // Is done 
-    const is_done_input = document.querySelector("#is-done-input")
+    });
+    // Is done
+    const is_done_input = document.querySelector("#is-done-input");
     is_done_input.addEventListener("change", () => {
-        const value = is_done_input.value        
+        const value = is_done_input.value;
         if (value == "none") {
-            tasks_container.innerHTML = ""
+            tasks_container.innerHTML = "";
             allTasks.forEach((t) => {
-                tasks_container.appendChild(t)
-            })
+                tasks_container.appendChild(t);
+            });
         } else {
             const tasks = allTasks.filter((task) => {
-                return (task.classList.contains("task-doned") && value == "Hecha") || (!task.classList.contains("task-doned") && value == "No Hecha")
-            })
-            tasks_container.innerHTML = ""
+                return (
+                    (task.classList.contains("task-doned") &&
+                        value == "Hecha") ||
+                    (!task.classList.contains("task-doned") &&
+                        value == "No Hecha")
+                );
+            });
+            tasks_container.innerHTML = "";
             tasks.forEach((t) => {
-                tasks_container.appendChild(t)
-            })
+                tasks_container.appendChild(t);
+            });
         }
-    })
+    });
 }
