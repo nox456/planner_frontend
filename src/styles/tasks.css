@@ -21,14 +21,15 @@ body {
     display: flex;
     justify-content: space-between;
     box-shadow: 0 0 0.8em 0.1em #000;
+    z-index: 10;
     #username {
         padding-inline: 1em;
         width: 10%;
         border-radius: 0.7em;
         background-color: transparent;
         outline: none;
-        color: #000;
-        border: 2px solid #000;
+        color: #FFF;
+        border: 2px solid #FFF;
         cursor: pointer;
         transition: background-color 200ms, color 200ms, border 200ms;
     }
@@ -87,14 +88,18 @@ body {
     grid-template-rows: 8% 92%;
     grid-template-columns: 8% 84% 8%;
     padding: 0.5em;
+    background-image: url("../img/pexels-photo-167682.jpeg");
+    background-size: 100%;
     overflow-y: hidden;
     #main-header {
         grid-row-start: 1;
         grid-column-start: 1;
         grid-column-end: 4;
         border-bottom: 2px solid #bbb;
-        padding-bottom: 0.2em;
+        border-radius: .4em;
+        background-color: #0009;
         display: flex;
+        padding: 0 .5em;
         justify-content: space-between;
         align-items: center;
         form {
@@ -107,11 +112,15 @@ body {
                 border-radius: 0.3em;
                 border: 2px solid #48b;
                 padding-inline: 0.7em;
+                background-color: transparent;
                 transition: border 200ms;
+                color: #FFF;
+            }
+            input::placeholder {
+                color: #FFF;
             }
             input:focus {
                 outline: none;
-                background-color: #fff;
             }
             #search-name {
                 padding: 0.4em 0.7em;
@@ -121,16 +130,20 @@ body {
                 border-radius: 0.3em;
                 border: 1px solid #48b;
                 outline: none;
-                background-color: #fff;
+                background-color: transparent;
+                color: #FFF;
                 transition: border-color 300ms;
+            }
+            select option {
+                color: #000;
             }
         }
         div {
             display: flex;
             gap: 1em;
             a {
-                background-color: #fff;
-                color: #000;
+                background-color: transparent;
+                color: #FFF;
                 padding: 0.3em 0.9em;
                 display: flex;
                 justify-content: center;
@@ -150,19 +163,22 @@ body {
             }
             p {
                 font-size: 1.3em;
+                color: #FFF;
                 font-weight: bold;
             }
         }
     }
     #links-sidebar {
         grid-row-start: 2;
+        border-radius: .4em;
         grid-column-start: 1;
         grid-column-end: 1;
-        padding: 0.5em 0.3em;
+        padding: 0.5em 0.8em;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.5em;
+        background-color: #0009;
         border-right: 2px solid #bbb;
         a {
             border: 2px solid #48b;
@@ -175,7 +191,7 @@ body {
             width: 100%;
             font-size: 0.8em;
             text-decoration: none;
-            color: #888;
+            color: #DDD;
             svg {
                 fill: currentColor;
             }
@@ -196,6 +212,8 @@ body {
         grid-column-start: 2;
         grid-column-end: 2;
         padding: 0.7em;
+        background-color: #0009;
+        border-radius: .4em;
         display: flex;
         justify-content: center;
         align-content: start;
@@ -283,10 +301,10 @@ body {
             transition: box-shadow 100ms;
         }
         article:hover:not(.task-doned) {
-            box-shadow: 0 0 0.8em 0.1em #000;
+            box-shadow: 0 0 0.8em 0.1em #888;
         }
         article.task-doned {
-            background-color: #8ad;
+            background-color: #68b;
             user-select: none;
             pointer-events: none;
             header h3 {
@@ -336,14 +354,16 @@ body {
         grid-column-start: 3;
         border-left: 2px solid #ccc;
         display: flex;
+        background-color: #0009;
+        border-radius: .4em;
         flex-direction: column;
-        padding: 0.5em 0.3em;
+        padding: 0.5em 0.8em;
         align-items: start;
         gap: 0.4em;
         p {
-            border-bottom: 2px solid #ccc;
+            border-bottom: 2px solid #AAA;
             width: 100%;
-            color: #000;
+            color: #FFF;
             display: flex;
             align-items: center;
             gap: 0.3em;
