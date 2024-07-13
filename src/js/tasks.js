@@ -109,8 +109,10 @@ if (auth.status == 401) {
                             </dialog>
                             <dialog id="done-dialog">
                                 <h3>¿Marcar como Hecha?</h3>
-                                <button id="close-button">No</button>
-                                <button id="confirm-button">Si</button>
+                                <div>
+                                    <button id="close-button">No</button>
+                                    <button id="confirm-button">Si</button>
+                                </div>
                             </dialog>
                         </header>
                         <main>
