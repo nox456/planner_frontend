@@ -5,13 +5,13 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
+    display: grid;
+    grid-template-rows: 6% 88% 6%;
     height: 100vh;
 }
 
 #page-header {
+    grid-row-start: 1;
     h1 {
         user-select: none;
     }
@@ -35,10 +35,11 @@ body {
     dialog[open] {
         display: flex;
         width: 8%;
+        height: 8%;
     }
     dialog {
-        top: 50%;
-        left: 50%;
+        top: 46%;
+        left: 46%;
         padding: 0.4em 0.6em;
         border: 3px solid #ccc;
         border-radius: 0.3em;
@@ -76,11 +77,12 @@ body {
 }
 
 #page-main {
+    grid-row-start: 2;
     display: grid;
     grid-template-rows: 8% 92%;
     grid-template-columns: 8% 84% 8%;
     padding: 0.5em;
-    height: 100%;
+    overflow-y: hidden;
     #main-header {
         grid-row-start: 1;
         grid-column-start: 1;
@@ -185,6 +187,7 @@ body {
         }
     }
     #tasks-container {
+        overflow-y: auto;
         grid-row-start: 2;
         grid-column-start: 2;
         grid-column-end: 2;
@@ -351,9 +354,9 @@ body {
 }
 
 #page-footer {
+    grid-row-start: 3;
     padding: 1em .5em;
     border-top: 2px solid #CCC;
-    margin-top: auto;
     box-shadow: 0 0 0.8em 0.1em #000;
     a {
         text-decoration: none;
