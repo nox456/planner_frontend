@@ -49,13 +49,34 @@ if (auth.status == 401) {
                 const container = document.createElement("article");
                 if (task.is_done) {
                     container.innerHTML = `
-                        <h3>${task.name}</h3>
-                        <input type="checkbox" id="done-input" checked> <hr>
-                        <p id="course">${task.course}</p>
-                        <p>${task.topic}</p>
-                        <p id="evaluation">${task.evaluation}</p>
-                        <hr>
-                        <p id="finish-date">${task.finish_date}</p>
+                        <header>
+                            <div></div>
+                            <h3>${task.name}</h3>
+                            <input type="checkbox" id="done-input" checked>
+                        </header>
+                        <main>
+                            <p id="course">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M2 7v1l11 4 9-4V7L11 4z"></path><path d="M4 11v4.267c0 1.621 4.001 3.893 9 3.734 4-.126 6.586-1.972 7-3.467.024-.089.037-.178.037-.268V11L13 14l-5-1.667v3.213l-1-.364V12l-3-1z"></path></svg>
+                                ${task.course}
+                            </p>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M19 2.01H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3h15v-2H6.012C5.55 19.998 5 19.815 5 19.01c0-.101.009-.191.024-.273.112-.575.583-.717.987-.727H20c.018 0 .031-.009.049-.01H21V4.01c0-1.103-.897-2-2-2zm0 14H5v-11c0-.806.55-.988 1-1h7v7l2-1 2 1v-7h2v12z"></path></svg>
+                                ${task.topic}
+                            </p>
+                            <p id="evaluation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M4 21a1 1 0 0 0 .24 0l4-1a1 1 0 0 0 .47-.26L21 7.41a2 2 0 0 0 0-2.82L19.42 3a2 2 0 0 0-2.83 0L4.3 15.29a1.06 1.06 0 0 0-.27.47l-1 4A1 1 0 0 0 3.76 21 1 1 0 0 0 4 21zM18 4.41 19.59 6 18 7.59 16.42 6zM5.91 16.51 15 7.41 16.59 9l-9.1 9.1-2.11.52z"></path></svg>
+                                ${task.evaluation}
+                            </p>
+                        </main>
+                        <footer>
+                            <p id="finish-date">
+                                ${new Date(task.finish_date).getDate()}
+                                /
+                                ${new Date(task.finish_date).getMonth()}
+                                /
+                                ${new Date(task.finish_date).getFullYear()}
+                            </p>
+                        </footer>
                     `;
                     container.classList.add("task-doned");
                     tasks_container.appendChild(container);
@@ -76,7 +97,7 @@ if (auth.status == 401) {
                                 </svg>
                             </button>
                             <h3>${task.name}</h3>
-                            <input type="checkbox" id="done-input">
+                            <input type="checkbox" id="done-input" title="Marcar como hecha">
                             <dialog id="delete-dialog">
                                 <h3>Eliminar Tarea</h3>
                                 <p>${task.name}</p>
@@ -93,18 +114,21 @@ if (auth.status == 401) {
                             </dialog>
                         </header>
                         <main>
-                            <p id="course">
+                            <p id="course" title="Materia">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M2 7v1l11 4 9-4V7L11 4z"></path><path d="M4 11v4.267c0 1.621 4.001 3.893 9 3.734 4-.126 6.586-1.972 7-3.467.024-.089.037-.178.037-.268V11L13 14l-5-1.667v3.213l-1-.364V12l-3-1z"></path></svg>
                                 ${task.course}
                             </p>
-                            <p>
+                            <p title="Tema">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M19 2.01H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3h15v-2H6.012C5.55 19.998 5 19.815 5 19.01c0-.101.009-.191.024-.273.112-.575.583-.717.987-.727H20c.018 0 .031-.009.049-.01H21V4.01c0-1.103-.897-2-2-2zm0 14H5v-11c0-.806.55-.988 1-1h7v7l2-1 2 1v-7h2v12z"></path></svg>
                                 ${task.topic}
                             </p>
-                            <p id="evaluation">
+                            <p id="evaluation" title="Evaluación">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M4 21a1 1 0 0 0 .24 0l4-1a1 1 0 0 0 .47-.26L21 7.41a2 2 0 0 0 0-2.82L19.42 3a2 2 0 0 0-2.83 0L4.3 15.29a1.06 1.06 0 0 0-.27.47l-1 4A1 1 0 0 0 3.76 21 1 1 0 0 0 4 21zM18 4.41 19.59 6 18 7.59 16.42 6zM5.91 16.51 15 7.41 16.59 9l-9.1 9.1-2.11.52z"></path></svg>
                                 ${task.evaluation}
                             </p>
                         </main>
                         <footer>
-                            <p id="finish-date">
+                            <p id="finish-date" title="Fecha de Finalización">
                                 ${new Date(task.finish_date).getDate()}
                                 /
                                 ${new Date(task.finish_date).getMonth()}

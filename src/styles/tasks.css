@@ -203,6 +203,9 @@ body {
                 justify-content: space-between;
                 padding: .3em 0;
                 border-bottom: 2px solid #CCC;
+                div {
+                    width: 15%;
+                }
                 #delete-button {
                     display: flex;
                     justify-content: center;
@@ -231,7 +234,6 @@ body {
                 }
 
                 #done-input {
-                    appearance: none;
                     border: 2px solid #ccc;
                     width: 15%;
                     cursor: pointer;
@@ -250,6 +252,15 @@ body {
                 padding: .7em 0;
                 p {
                     color: #555;
+                    display: flex;
+                    align-items: center;
+                    gap: .8em;
+                    user-select: none;
+                    svg {
+                        fill: currentColor;
+                        color: #555;
+                        width: 1.1em;
+                    }
                 }
             }
             footer {
@@ -262,6 +273,14 @@ body {
         }
         article:hover:not(.task-doned) {
             border: 2px solid #000;
+        }
+        article.task-doned {
+            background-color: #EEE;
+            user-select: none;
+            pointer-events: none;
+            header h3 {
+                color: #555;
+            }
         }
         #delete-dialog[open] {
             display: flex;
