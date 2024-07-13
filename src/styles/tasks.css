@@ -31,6 +31,47 @@ body {
     #username:hover {
         border: 2px solid #000;
     }
+    dialog[open] {
+        display: flex;
+        width: 8%;
+    }
+    dialog {
+        top: 50%;
+        left: 50%;
+        padding: 0.4em 0.6em;
+        border: 3px solid #ccc;
+        border-radius: 0.3em;
+        flex-direction: column;
+        gap: 0.5em;
+        #close-button {
+            align-self: flex-end;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            cursor: pointer;
+            border: none;
+            svg {
+                width: 1.4em;
+                height: 1.4em;
+            }
+        }
+        #logout-button {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            padding: 0.3em 0.5em;
+            border-radius: 0.3em;
+            color: #888;
+            transition:
+                color 200ms,
+                border 200ms;
+            cursor: pointer;
+        }
+        #logout-button:hover {
+            color: #000;
+            border: 2px solid #000;
+        }
+    }
 }
 
 main {
@@ -83,7 +124,7 @@ main {
             display: flex;
             gap: 1em;
             a {
-                background-color: #FFF;
+                background-color: #fff;
                 color: #888;
                 padding: 0.3em 0.9em;
                 display: flex;
@@ -93,7 +134,9 @@ main {
                 border: 2px solid #888;
                 text-decoration: none;
                 font-weight: bold;
-                transition: color 200ms, border-color 200ms;
+                transition:
+                    color 200ms,
+                    border-color 200ms;
             }
             a:hover {
                 border: 2px solid #000;
@@ -109,28 +152,30 @@ main {
         grid-row-start: 2;
         grid-column-start: 1;
         grid-column-end: 1;
-        padding: .5em .3em;
+        padding: 0.5em 0.3em;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: .5em;
+        gap: 0.5em;
         border-right: 2px solid #bbb;
         a {
-            border: 2px solid #CCC;
-            padding: .3em;
+            border: 2px solid #ccc;
+            padding: 0.3em;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: .5em;
+            border-radius: 0.5em;
             width: 100%;
-            font-size: .8em;
+            font-size: 0.8em;
             text-decoration: none;
             color: #888;
             svg {
                 fill: currentColor;
             }
-            transition: color 200ms, border-color 200ms;
+            transition:
+                color 200ms,
+                border-color 200ms;
         }
         a:hover {
             color: #000;
@@ -141,24 +186,59 @@ main {
         grid-row-start: 2;
         grid-column-start: 2;
         grid-column-end: 2;
-        padding: .7em;
+        padding: 0.7em;
+        dialog[open] {
+            display: flex;
+            width: 18%;
+            height: 20%;
+        }
+        dialog {
+            top: 40%;
+            left: 41%;
+            padding: 0.4em 0.6em;
+            border: 3px solid #ccc;
+            border-radius: 0.3em;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5em;
+            div {
+                width: 100%;
+                display: flex;
+                gap: .3em;
+            }
+            div button {
+                background-color: #FFF;
+                border: 2px solid #CCC;
+                border-radius: .3em;
+                padding: .3em .5em;
+                width: 60%;
+                color: #888;
+                transition: color 200ms, border 200ms;
+                cursor: pointer;
+            }
+            div button:hover {
+                color: #000;
+                border: 2px solid #000;
+            }
+        }
     }
     #info-sidebar {
         grid-row-start: 2;
         grid-column-start: 3;
-        border-left: 2px solid #CCC;
+        border-left: 2px solid #ccc;
         display: flex;
         flex-direction: column;
-        padding: .5em .3em;
+        padding: 0.5em 0.3em;
         align-items: start;
-        gap: .4em;
+        gap: 0.4em;
         p {
-            border-bottom: 2px solid #CCC;
+            border-bottom: 2px solid #ccc;
             width: 100%;
             color: #000;
             display: flex;
             align-items: center;
-            gap: .3em;
+            gap: 0.3em;
             user-select: none;
             svg {
                 fill: currentColor;

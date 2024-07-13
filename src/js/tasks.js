@@ -67,9 +67,11 @@ if (auth.status == 401) {
                         <dialog id="delete-dialog">
                             <h3>Eliminar Tarea</h3>
                             <p>${task.name}</p>
-                            <p>¿Estás seguro?</p>
-                            <button id="close-button">No</button>
-                            <button id="confirm-button">Si</button>
+                            <b>¿Estás seguro?</b>
+                            <div>
+                                <button id="close-button">No</button>
+                                <button id="confirm-button">Si</button>
+                            </div>
                         </dialog>
                         <button id="delete-button">Eliminar</button>
                         <input type="checkbox" id="done-input">
@@ -107,6 +109,8 @@ if (auth.status == 401) {
                         );
                         container.querySelector("#delete-dialog").close();
                         container.remove();
+                        document.querySelector("#tasks-doned").innerText =
+                            `${tasks_doned.length}/${tasks_container.children.length}`;
                         if (tasks_container.children.length == 0) {
                             tasks_container.innerText =
                                 "No hay tareas, por ahora...";
