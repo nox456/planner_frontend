@@ -16,9 +16,14 @@ if (auth.status == 401) {
     const { data } = await res.json();
 
     document.querySelector("#username").innerText = data.username;
-    document.querySelector("#score").innerText = `Puntos: ${data.score}`;
-    document.querySelector("#achievements").innerText =
-        `Logros: ${data.achievements}`;
+
+    const score = document.createElement("span")
+    score.innerHTML = data.score
+    document.querySelector("#score").appendChild(score)
+
+    const ach = document.createElement("span")
+    ach.innerHTML = data.achievements
+    document.querySelector("#achievements").appendChild(ach)
 
 
     const { tasks } = data;

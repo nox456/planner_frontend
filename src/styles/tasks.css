@@ -141,9 +141,30 @@ main {
         grid-row-start: 2;
         grid-column-start: 2;
         grid-column-end: 2;
+        padding: .7em;
     }
     #info-sidebar {
         grid-row-start: 2;
         grid-column-start: 3;
+        border-left: 2px solid #CCC;
+        display: flex;
+        flex-direction: column;
+        padding: .5em .3em;
+        align-items: start;
+        gap: .4em;
+        p {
+            border-bottom: 2px solid #CCC;
+            width: 100%;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: .3em;
+            user-select: none;
+            svg {
+                fill: currentColor;
+                width: 1em;
+                color: #888;
+            }
+        }
     }
 }
