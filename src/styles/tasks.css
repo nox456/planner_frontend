@@ -451,7 +451,7 @@ body {
             width: 20%;
         }
         dialog[open] {
-            height: 10%;
+            height: fit-content;
             width: 60%;
         }
         dialog {
@@ -459,8 +459,10 @@ body {
         }
     }
     #page-main {
-        grid-template-rows: 12% 7% 5% 77%;
+        grid-template-rows: 15% 7% 5% 75%;
         grid-template-columns: 100%;
+        background-size: 200% 100%;
+        background-repeat: no-repeat;
         #main-header {
             grid-row-start: 1;
             grid-row-end: 1;
@@ -533,12 +535,17 @@ body {
             #delete-dialog[open] {
                 display: flex;
                 width: 40%;
-                height: 20%;
+                height: fit-content;
             }
             #delete-dialog {
                 left: 30%;
+                h3 {
+                    text-align: center;
+                }
             }
             #done-dialog[open] {
+                height: fit-content;
+                padding: .5em 0;
                 width: 35%;
                 left: 35%;
             }
