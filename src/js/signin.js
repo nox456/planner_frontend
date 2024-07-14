@@ -12,9 +12,7 @@ if (auth.status != 401) {
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        if (document.querySelector("#message")) {
-            document.querySelector("#message").remove()
-        }
+        const dialog = document.querySelector("#message")
         const username = username_input.value;
         const password = password_input.value;
         const res = await fetch(`${HOST}/auth/signin`, {
@@ -28,14 +26,15 @@ if (auth.status != 401) {
         if (res.status == 200) {
             location.href = '../pages/tareas.html'
         } else {
-            const message = document.createElement("p")
-            message.id = "message"
+            dialog.showModal()
             if (res.status == 404) {
-                message.innerText = "Usuario no encontrado!"
+                dialog.querySelector("p").innerText = 'Usuario no encontrado!'
             } else if (res.status == 401) {
-                message.innerText = "Contraseña Incorrecta!"
+                dialog.querySelector("p").innerText = 'Contraseña Incorrecta!'
             }
-            document.body.appendChild(message)
+            dialog.querySelector("button").addEventListener("click", () => {
+                dialog.close()
+            })
         }
     });
 }

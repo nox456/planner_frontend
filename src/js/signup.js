@@ -23,7 +23,7 @@ if (auth.status != 401) {
             body: JSON.stringify({ username, password }),
         });
         if (res.status == 400) {
-            const dialog = document.querySelector("dialog")
+            const dialog = document.querySelector("#message")
             dialog.showModal()
             dialog.querySelector("p").innerText = "El usuario ya existe!"
             dialog.querySelector("button").addEventListener("click", () => {

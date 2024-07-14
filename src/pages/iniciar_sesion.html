@@ -4,20 +4,43 @@
         <meta charset="UTF-8" />
         <title>Iniciar sesión - PlannerApp</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="../styles/iniciar_sesion.css">
+        <link rel="stylesheet" href="../styles/iniciar_sesion.css" />
     </head>
     <body>
         <h1 class="title">Iniciar sesión</h1>
         <form id="form">
             <div class="container">
                 <div class="input">
-                    <input class="element" type="text" id="username" placeholder="Usuario..."/><br>
-                    <input class="element" type="password" id="password" placeholder="Contraseña..."/><br>
-                    <input class="element button" type="submit" value="Iniciar sesión" />
-                    <p>No tienes cuenta? <a href="registrarse.html">Registrate</a></p>
+                    <input
+                        class="element"
+                        type="text"
+                        id="username"
+                        placeholder="Usuario..."
+                        required
+                    /><br />
+                    <input
+                        class="element"
+                        type="password"
+                        id="password"
+                        placeholder="Contraseña..."
+                        required
+                    /><br />
+                    <input
+                        class="element button"
+                        type="submit"
+                        value="Iniciar sesión"
+                    />
+                    <p>
+                        No tienes cuenta?
+                        <a href="registrarse.html">Registrate</a>
+                    </p>
                 </div>
             </div>
         </form>
+        <dialog id="message">
+            <p></p>
+            <button>Aceptar</button>
+        </dialog>
         <script src="../js/signin.js" type="module"></script>
     </body>
 </html>
