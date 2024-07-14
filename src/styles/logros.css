@@ -280,10 +280,15 @@ body {
         section {
             grid-row-start: 2;
             grid-column-start: 1;
-            div {
+            #container {
                 font-size: .9em;
-                #ach-container article {
-                    width: 80%;
+                #ach-container {
+                    align-items: center;
+                    article {
+                    width: 90%;
+                    font-size: .9em;
+
+                    }
                 }
             }
         }
