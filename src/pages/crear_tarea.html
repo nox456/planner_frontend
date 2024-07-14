@@ -80,7 +80,7 @@
             </aside>
             <section id="create-task">
                 <form id="form">
-                    <input type="text" id="name" placeholder="Nombre..." />
+                    <input type="text" id="name" placeholder="Nombre..."  />
                     <select id="course_select">
                         <option selected hidden>Materia</option>
                         <option>Matemática</option>
@@ -101,7 +101,7 @@
                         <input type="checkbox" id="custom-course" />
                         Materia Personalizada
                     </label>
-                    <select id="evaluation">
+                    <select id="evaluation" >
                         <option selected hidden>Evaluación</option>
                         <option>Examen</option>
                         <option>Exposición</option>
@@ -112,9 +112,9 @@
                         <option>Tarea</option>
                         <option>Prueba Virtual</option>
                     </select>
-                    <input type="text" id="topic" placeholder="Tema..." />
-                    <input type="date" id="finish_date" />
-                    <input type="submit" value="Crear" id="submit"/>
+                    <input type="text" id="topic" placeholder="Tema..."  required/>
+                    <input type="date" id="finish_date"  required/>
+                    <input type="submit" value="Crear" id="submit" required/>
                 </form>
             </section>
         </main>
