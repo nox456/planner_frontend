@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+body {
+    background-size: 120%;
+    background-image: url("../img/pexels-photo-167682.jpeg");
+    background-repeat: no-repeat;
+}
+
 .title {
     color: rgb(0, 64, 255);
     -webkit-text-stroke-width: 1px;
@@ -63,8 +69,13 @@ a {
     font-weight: 5px;
     size: 100%;
 }
-body {
-    background-image: url("../img/pexels-photo-167682.jpeg");
-    background-size: 120%;
-    margin: 0;
+
+@media screen and (max-width: 640px) {
+    body {
+        height: 100vh;
+        background-size: 200% 100%;
+    }    
+    .title {
+        -webkit-text-stroke-width: .3px;
+    }
 }
