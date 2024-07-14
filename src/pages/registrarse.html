@@ -3,20 +3,38 @@
     <head>
         <meta charset="UTF-8" />
         <title>Registrarse - PlannerApp</title>
+        <link rel="stylesheet" href="../styles/registrarse.css" />
     </head>
     <body>
         <header>
-            <h1>Registrarse</h1>
+            <h1 class="title">Registrarse</h1>
         </header>
         <main>
             <form id="form">
-                <input type="text" id="username" placeholder="Usuario..." />
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Contraseña..."
-                />
-                <input type="submit" value="Registrarse" />
+                <div class="container">
+                    <div class="input">
+                        <input
+                            type="text"
+                            id="username"
+                            class="element"
+                            placeholder="Usuario..."
+                        />
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Contraseña..."
+                            class="element"
+                            style="margin-top: 20px"
+                        />
+                        <input
+                            style="margin-top: 20px"
+                            class="element button"
+                            type="submit"
+                            value="Registrarse"
+                        />
+                        <p>Ya tienes una cuenta? <a href="iniciar_sesion.html">Inicia Sesión</a></p>
+                    </div>
+                </div>
             </form>
             <dialog>
                 <p></p>

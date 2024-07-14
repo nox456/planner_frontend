@@ -1,0 +1,62 @@
+.title{
+    color: rgb(0, 64, 255);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: gainsboro;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-align: center;
+    margin-top: 70px;
+    font-family: 'Segoe UI';
+}
+.container {
+    display: flex;
+    margin: 0 auto;
+    border: darkgray 5px solid;
+    width: 250px;
+    height: 270px;
+    border-radius: 30px;
+    background: linear-gradient(to bottom right, aqua, blue);
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    .input {
+        margin: 0;
+        border-radius: 5px;
+        align-items: center;
+        justify-content: center;
+        .element{
+            display: block;
+            background-color: transparent;
+            margin: 0 auto;
+        }
+        input {
+            border: 2px solid #FFF;
+            border-radius: 5px;
+            height: 20px;
+        }
+        input::placeholder {
+            color: #FFF;
+        }
+        .button {
+            border-radius: 5px;
+            border: 0;
+            background: linear-gradient(to top left, aqua, blue);
+            width: 120px;
+            height: 40px;
+            color: white;
+            font-family: 'Franklin Gothic Medium';
+        }
+        p {
+            font-size: .9em;
+            a {
+                text-decoration: none;
+                color: #FFF;
+            }
+        }
+    }
+}
+
+body {
+    background-image: url("../img/pexels-photo-167682.jpeg");
+    background-size: 120%;
+    margin: 0;
+}

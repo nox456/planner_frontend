@@ -1,0 +1,230 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 6% 88% 6%;
+    height: 100vh;
+}
+
+#page-header {
+    grid-row-start: 1;
+    background-image: linear-gradient(to bottom right, aqua, blue);
+    h1 {
+        color: #fff;
+        user-select: none;
+    }
+    padding: 0.2em 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 0.8em 0.1em #000;
+    z-index: 10;
+    #username {
+        padding-inline: 1em;
+        width: 10%;
+        height: 100%;
+        border-radius: 0.7em;
+        background-color: transparent;
+        outline: none;
+        color: #fff;
+        border: 2px solid #fff;
+        cursor: pointer;
+        transition:
+            background-color 200ms,
+            color 200ms,
+            border 200ms;
+    }
+    #username:hover {
+        border: 2px solid transparent;
+        color: #fff;
+        background-color: #0004;
+    }
+    dialog[open] {
+        display: flex;
+        width: 8%;
+        height: 15%;
+    }
+    dialog {
+        top: 45%;
+        left: 46%;
+        padding: 0.4em 0.6em;
+        border: 3px solid #48b;
+        border-radius: 0.3em;
+        flex-direction: column;
+        background-color: #0009;
+        gap: 0.5em;
+        #close-button {
+            align-self: flex-end;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+            color: #fff;
+            svg {
+                fill: currentColor;
+                width: 1.4em;
+                height: 1.4em;
+            }
+        }
+        #logout-button {
+            background-color: transparent;
+            border: 2px solid #48b;
+            padding: 0.3em 0.5em;
+            border-radius: 0.3em;
+            color: #fff;
+            transition:
+                color 200ms,
+                background-color 200ms;
+            cursor: pointer;
+        }
+        #logout-button:hover {
+            color: #fff;
+            background-color: #48b;
+        }
+    }
+}
+
+#page-main {
+    grid-row-start: 2;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 8% 92%;
+    padding: 0.5em;
+    background-image: url("../img/pexels-photo-167682.jpeg");
+    background-size: 100%;
+    overflow-y: hidden;
+    #links-sidebar {
+        grid-row-start: 1;
+        border-radius: 0.4em;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        padding: 0.5em 0.8em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+        background-color: #0009;
+        border-right: 2px solid #bbb;
+        a {
+            border: 2px solid #48b;
+            padding: 0.3em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5em;
+            width: 100%;
+            font-size: 0.8em;
+            text-decoration: none;
+            color: #ddd;
+            svg {
+                fill: currentColor;
+            }
+            transition:
+                color 200ms,
+                border-color 200ms,
+                background-color 200ms;
+        }
+        a:hover {
+            color: #fff;
+            background-image: linear-gradient(to bottom right, aqua, blue);
+            border-color: #48b;
+        }
+    }
+    section {
+        grid-column-start: 2;
+        background-color: #0009;
+        border-radius: 0.4em;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3em;
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: .4em;
+            #achievements-doned {
+                align-self: self-end;
+                border: 2px solid #48b;
+                padding: 0.3em;
+                font-weight: bold;
+                border-radius: .3em;
+            }
+            #ach-container {
+                article {
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: #0009;
+                    border-radius: 0.5em;
+                    padding: 0.4em 0.6em;
+                    border: 2px solid #48b;
+                    gap: 4em;
+                    #left-side {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        gap: 0;
+                        h3 {
+                            display: flex;
+                            align-items: center;
+                            gap: .2em;
+                            svg {
+                                fill: currentColor;
+                                color: #888;
+                                width: .7em;
+                                height: .7em;
+                            }
+                        }
+                        p {
+                            font-size: .8em;
+                        }
+                    }
+                    #right-side {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0;
+                        p {
+                            align-self: self-end;
+                            font-size: .8em;
+                        }
+                        p:nth-child(2) {
+                            display: flex;
+                            align-items: center;
+                            gap: .3em;
+                            svg {
+                                fill: currentColor;
+                                color: #888;
+                                width: .9em;
+                            }
+
+                        }
+                    }
+                }
+                article.ach-doned {
+                    color: #888;
+                }
+            }
+        }
+    }
+}
+
+#page-footer {
+    grid-row-start: 3;
+    padding: 1em 0.5em;
+    background-image: linear-gradient(to bottom right, aqua, blue);
+    box-shadow: 0 0 0.8em 0.1em #000;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+}

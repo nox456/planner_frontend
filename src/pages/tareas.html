@@ -3,61 +3,136 @@
     <head>
         <meta charset="UTF-8" />
         <title>Tareas - PlannerApp</title>
+        <link rel="stylesheet" href="../styles/tasks.css" />
     </head>
     <body>
-        <header>
-            <form>
-                <input type="text" placeholder="Buscar..." id="search-name"/>
-                <input type="date" id="filter-finish"/>
-                <select id="evaluation-input">
-                    <option selected hidden>Evaluación</option>
-                    <option value="none">--Todas--</option>
-                    <option>Examen</option>
-                    <option>Exposición</option>
-                    <option>Taller</option>
-                </select>
-                <select id="course-input">
-                    <option selected hidden>Materia</option>
-                    <option value="none">--Todas--</option>
-                    <option>Matemática</option>
-                    <option>Estadística</option>
-                    <option>Informatica</option>
-                    <option>Programación</option>
-                    <option>Lógica</option>
-                    <option>Derecho</option>
-                    <option>Geometría</option>
-                </select>
-                <select id="is-done-input">
-                    <option selected hidden>Estado</option>
-                    <option value="none">--Todas--</option>
-                    <option>Hecha</option>
-                    <option>No Hecha</option>
-                </select>
-            </form>
+        <header id="page-header">
+            <h1>Tareas</h1>
             <button id="username"></button>
             <dialog id="logout-dialog">
-                <button id="close-button">X</button>
+                <button id="close-button">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
+                        ></path>
+                    </svg>
+                </button>
                 <button id="logout-button">Cerrar sesion</button>
             </dialog>
         </header>
-
-        <aside>
-            <a href="clasificacion.html">Enlace tabla clasificación</a><br />
-            <a href="logros.html">Enlace lista de logros</a><br />
-        </aside>
-
-        <main>
-            <p id="tasks-doned"></p>
-            <a href="crear_tarea.html">Crear Tarea</a>
+        <main id="page-main">
+            <header id="main-header">
+                <form>
+                    <input
+                        type="text"
+                        placeholder="Buscar..."
+                        id="search-name"
+                    />
+                    <input type="date" id="filter-finish" />
+                    <select id="evaluation-input">
+                        <option selected hidden>Evaluación</option>
+                        <option value="none">--Todas--</option>
+                        <option>Examen</option>
+                        <option>Exposición</option>
+                        <option>Taller</option>
+                    </select>
+                    <select id="course-input">
+                        <option selected hidden>Materia</option>
+                        <option value="none">--Todas--</option>
+                        <option>Matemática</option>
+                        <option>Estadística</option>
+                        <option>Informatica</option>
+                        <option>Programación</option>
+                        <option>Lógica</option>
+                        <option>Derecho</option>
+                        <option>Geometría</option>
+                    </select>
+                    <select id="is-done-input">
+                        <option selected hidden>Estado</option>
+                        <option value="none">--Todas--</option>
+                        <option>Hecha</option>
+                        <option>No Hecha</option>
+                    </select>
+                </form>
+                <div>
+                    <p id="tasks-doned"></p>
+                    <a href="crear_tarea.html">Crear Tarea</a>
+                </div>
+            </header>
+            <aside id="links-sidebar">
+                <a href="clasificacion.html">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="M6 21H3a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1zm7 0h-3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v17a1 1 0 0 1-1 1zm7 0h-3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1z"
+                        ></path>
+                    </svg>
+                    Clasificación
+                </a>
+                <a href="logros.html">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="M12 22c3.859 0 7-3.141 7-7s-3.141-7-7-7c-3.86 0-7 3.141-7 7s3.14 7 7 7zm0-12c2.757 0 5 2.243 5 5s-2.243 5-5 5-5-2.243-5-5 2.243-5 5-5zm-1-8H7v5.518a8.957 8.957 0 0 1 4-1.459V2zm6 0h-4v4.059a8.957 8.957 0 0 1 4 1.459V2z"
+                        ></path>
+                        <path
+                            d="m10.019 15.811-.468 2.726L12 17.25l2.449 1.287-.468-2.726 1.982-1.932-2.738-.398L12 11l-1.225 2.481-2.738.398z"
+                        ></path>
+                    </svg>
+                    Logros
+                </a>
+            </aside>
             <section id="tasks-container"></section>
+            <aside id="info-sidebar">
+                <p id="score" title="Puntos">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="m6.516 14.323-1.49 6.452a.998.998 0 0 0 1.529 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082a1 1 0 0 0-.59-1.74l-5.701-.454-2.467-5.461a.998.998 0 0 0-1.822 0L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.214 4.107zm2.853-4.326a.998.998 0 0 0 .832-.586L12 5.43l1.799 3.981a.998.998 0 0 0 .832.586l3.972.315-3.271 2.944c-.284.256-.397.65-.293 1.018l1.253 4.385-3.736-2.491a.995.995 0 0 0-1.109 0l-3.904 2.603 1.05-4.546a1 1 0 0 0-.276-.94l-3.038-2.962 4.09-.326z"
+                        ></path>
+                    </svg>
+                </p>
+                <p id="achievements" title="Logros">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="M12 22c3.859 0 7-3.141 7-7s-3.141-7-7-7c-3.86 0-7 3.141-7 7s3.14 7 7 7zm0-12c2.757 0 5 2.243 5 5s-2.243 5-5 5-5-2.243-5-5 2.243-5 5-5zm-1-8H7v5.518a8.957 8.957 0 0 1 4-1.459V2zm6 0h-4v4.059a8.957 8.957 0 0 1 4 1.459V2z"
+                        ></path>
+                        <path
+                            d="m10.019 15.811-.468 2.726L12 17.25l2.449 1.287-.468-2.726 1.982-1.932-2.738-.398L12 11l-1.225 2.481-2.738.398z"
+                        ></path>
+                    </svg>
+                </p>
+            </aside>
         </main>
 
-        <aside>
-            <p id="score"></p>
-            <p id="achievements"></p>
-        </aside>
-
-        <footer>
+        <footer id="page-footer">
             <a href="desarrolladores.html">Desarrolladores|Información</a>
         </footer>
 

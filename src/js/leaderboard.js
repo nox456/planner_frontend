@@ -28,7 +28,7 @@ if (auth.status == 401) {
     document
         .querySelector("#logout-button")
         .addEventListener("click", async () => {
-            await fetch("https://planner-backend-uy1a.onrender.com/auth/logout", {
+            await fetch(`${HOST}/auth/logout`, {
                 credentials: "include",
             });
             location.href = "../index.html";
@@ -40,7 +40,11 @@ if (auth.status == 401) {
     const data1 = await res1.json();
 
     table.innerHTML = ''
+    let currentPos
     data1.data.forEach((user, index) => {
+        if (user.username == data.username) {
+            currentPos = index + 1
+        }
         const row = document.createElement("tr")
         const pos = document.createElement("td")
         const username = document.createElement("td")
@@ -55,4 +59,5 @@ if (auth.status == 401) {
         row.appendChild(score)
         table.appendChild(row)
     })
+    document.querySelector("#current-pos").innerText = `Tu Posición Actual: ${currentPos}`
 }

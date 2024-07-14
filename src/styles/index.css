@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title {
+    color: rgb(0, 64, 255);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: gainsboro;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-align: center;
+    margin-top: 70px;
+    font-family: 'Segoe UI';
+}
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    border: darkgray 5px solid;
+    width: 250px;
+    height: 270px;
+    border-radius: 30px;
+    background: linear-gradient(to bottom right, aqua, blue);
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    .text{
+        text-align: center;
+        button {
+            padding: 0;
+            display: flex;
+            margin: 0 auto;
+            border-radius: 5px;
+            border: 0;
+            background: linear-gradient(to top left, aqua, blue);
+            width: 120px;
+            height: 40px;
+            :hover{
+                background: linear-gradient(to bottom right, blue, darkblue);
+            }
+            :active{
+                background-color: darkblue;
+            }
+            div {
+                display: flex;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 15px;
+    font-weight: 5px;
+    size: 100%;
+}
+body {
+    background-image: url("../img/pexels-photo-167682.jpeg");
+    background-size: 120%;
+    margin: 0;
+}

@@ -3,55 +3,117 @@
     <head>
         <meta charset="UTF-8" />
         <title>Crear Tarea - PlannerApp</title>
+        <link rel="stylesheet" href="../styles/crear_tarea.css" />
     </head>
     <body>
-        <header>
+        <header id="page-header">
             <h1>Crear Tarea</h1>
             <button id="username"></button>
             <dialog id="logout-dialog">
-                <button id="close-button">X</button>
+                <button id="close-button">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
+                        ></path>
+                    </svg>
+                </button>
                 <button id="logout-button">Cerrar sesion</button>
             </dialog>
         </header>
-        <aside>
-            <a href="clasificacion.html">Enlace tabla clasificación</a><br />
-            <a href="logros.html">Enlace lista de logros</a><br />
-        </aside>
+        <main id="page-main">
+            <aside id="links-sidebar">
+                <a href="clasificacion.html">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="M6 21H3a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1zm7 0h-3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v17a1 1 0 0 1-1 1zm7 0h-3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1z"
+                        ></path>
+                    </svg>
+                    Clasificación
+                </a>
+                <a href="logros.html">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="M12 22c3.859 0 7-3.141 7-7s-3.141-7-7-7c-3.86 0-7 3.141-7 7s3.14 7 7 7zm0-12c2.757 0 5 2.243 5 5s-2.243 5-5 5-5-2.243-5-5 2.243-5 5-5zm-1-8H7v5.518a8.957 8.957 0 0 1 4-1.459V2zm6 0h-4v4.059a8.957 8.957 0 0 1 4 1.459V2z"
+                        ></path>
+                        <path
+                            d="m10.019 15.811-.468 2.726L12 17.25l2.449 1.287-.468-2.726 1.982-1.932-2.738-.398L12 11l-1.225 2.481-2.738.398z"
+                        ></path>
+                    </svg>
+                    Logros
+                </a>
+                <a href="tareas.html">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="transform:; msfilter:"
+                    >
+                        <path
+                            d="M5 22h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-2a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2zM5 5h2v2h10V5h2v15H5V5z"
+                        ></path>
+                        <path
+                            d="m11 13.586-1.793-1.793-1.414 1.414L11 16.414l5.207-5.207-1.414-1.414z"
+                        ></path>
+                    </svg>
+                    Tareas
+                </a>
+            </aside>
+            <section id="create-task">
+                <form id="form">
+                    <input type="text" id="name" placeholder="Nombre..." />
+                    <select id="course_select">
+                        <option selected hidden>Materia</option>
+                        <option>Matemática</option>
+                        <option>Estadística</option>
+                        <option>Informatica</option>
+                        <option>Programación</option>
+                        <option>Lógica</option>
+                        <option>Derecho</option>
+                        <option>Geometría</option>
+                    </select>
+                    <input
+                        type="text"
+                        id="course_text"
+                        placeholder="Materia..."
+                        hidden
+                    />
+                    <label>
+                        <input type="checkbox" id="custom-course" />
+                        Materia Personalizada
+                    </label>
+                    <select id="evaluation">
+                        <option selected hidden>Evaluación</option>
+                        <option>Examen</option>
+                        <option>Exposición</option>
+                        <option>Taller</option>
+                    </select>
+                    <input type="text" id="topic" placeholder="Tema..." />
+                    <input type="date" id="finish_date" />
+                    <input type="submit" value="Crear" id="submit"/>
+                </form>
+            </section>
+        </main>
 
-        <form id="form">
-            <input type="text" id="name" placeholder="Nombre..." />
-            <select id="course_select">
-                <option selected hidden>Materia</option>
-                <option>Matemática</option>
-                <option>Estadística</option>
-                <option>Informatica</option>
-                <option>Programación</option>
-                <option>Lógica</option>
-                <option>Derecho</option>
-                <option>Geometría</option>
-            </select>
-            <input
-                type="text"
-                id="course_text"
-                placeholder="Materia..."
-                hidden
-            />
-            <label>
-                <input type="checkbox" id="custom-course" />
-                Materia Personalizada
-            </label>
-            <select id="evaluation">
-                <option selected hidden>Evaluación</option>
-                <option>Examen</option>
-                <option>Exposición</option>
-                <option>Taller</option>
-            </select>
-            <input type="text" id="topic" placeholder="Tema..." />
-            <input type="date" id="finish_date" />
-            <input type="submit" value="Crear" />
-        </form>
-
-        <footer>
+        <footer id="page-footer">
             <a href="desarrolladores.html">Desarrolladores|Información</a>
         </footer>
         <script src="../js/create_task.js" type="module"></script>
