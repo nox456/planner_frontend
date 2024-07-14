@@ -1,0 +1,78 @@
+.project{
+    display: flex;
+    margin: 0 auto;
+    border: darkgray 5px solid;
+    width: 900px0px;
+    height: 250px;
+    border-radius: 30px;
+    background: linear-gradient(to bottom right, aqua, blue);
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-family: 'Franklin Gothic Medium';
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: .4em;
+    text-align: center;
+}
+
+.title {
+    color: rgb(0, 64, 255);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: gainsboro;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-align: center;
+    margin-top: 70px;
+    font-family: 'Segoe UI';
+}
+
+body {
+    background-image: url("../img/pexels-photo-167682.jpeg");
+    background-size: 120%;
+    margin: 0;
+}
+.dev {
+    width: 40%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: .1em;
+    h2 {
+        padding: .4em;
+        background-image: linear-gradient(to bottom right, aqua, blue);
+        border-radius: .3em;
+        border: 3px solid #48b;
+    }
+}
+
+.abdev{
+    color: rgb(0, 64, 255);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: gainsboro;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-align: center;
+    font-family: 'Segoe UI';
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        height: 100vh;
+        background-size: 200% 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .project {
+        width: 80%;
+        height: fit-content;
+        h2 {
+            font-size: 1em;
+        }
+    }
+    .dev {
+        h2 {
+            font-size: 1em;
+        }
+    }
+}
