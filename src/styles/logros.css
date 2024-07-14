@@ -14,7 +14,7 @@ body {
     grid-row-start: 1;
     background-image: linear-gradient(to bottom right, aqua, blue);
     h1 {
-        color: #FFF;
+        color: #fff;
         user-select: none;
     }
     padding: 0.2em 0.5em;
@@ -30,14 +30,17 @@ body {
         border-radius: 0.7em;
         background-color: transparent;
         outline: none;
-        color: #FFF;
-        border: 2px solid #FFF;
+        color: #fff;
+        border: 2px solid #fff;
         cursor: pointer;
-        transition: background-color 200ms, color 200ms, border 200ms;
+        transition:
+            background-color 200ms,
+            color 200ms,
+            border 200ms;
     }
     #username:hover {
         border: 2px solid transparent;
-        color: #FFF;
+        color: #fff;
         background-color: #0004;
     }
     dialog[open] {
@@ -62,7 +65,7 @@ body {
             background-color: transparent;
             cursor: pointer;
             border: none;
-            color: #FFF;
+            color: #fff;
             svg {
                 fill: currentColor;
                 width: 1.4em;
@@ -74,14 +77,14 @@ body {
             border: 2px solid #48b;
             padding: 0.3em 0.5em;
             border-radius: 0.3em;
-            color: #FFF;
+            color: #fff;
             transition:
                 color 200ms,
                 background-color 200ms;
             cursor: pointer;
         }
         #logout-button:hover {
-            color: #FFF;
+            color: #fff;
             background-color: #48b;
         }
     }
@@ -98,7 +101,7 @@ body {
     overflow-y: hidden;
     #links-sidebar {
         grid-row-start: 1;
-        border-radius: .4em;
+        border-radius: 0.4em;
         grid-column-start: 1;
         grid-column-end: 1;
         padding: 0.5em 0.8em;
@@ -119,7 +122,7 @@ body {
             width: 100%;
             font-size: 0.8em;
             text-decoration: none;
-            color: #DDD;
+            color: #ddd;
             svg {
                 fill: currentColor;
             }
@@ -129,59 +132,84 @@ body {
                 background-color 200ms;
         }
         a:hover {
-            color: #FFF;
+            color: #fff;
             background-image: linear-gradient(to bottom right, aqua, blue);
             border-color: #48b;
         }
     }
-    #create-task {
+    section {
         grid-column-start: 2;
-        display: flex;
         background-color: #0009;
-        border-radius: .4em;
-        justify-content: center;
+        border-radius: 0.4em;
+        color: #fff;
+        display: flex;
         align-items: center;
-        #form {
+        justify-content: center;
+        font-size: 1.3em;
+        div {
             display: flex;
             flex-direction: column;
-            border-radius: .4em;
-            padding: 2em;
-            gap: .9em;
-            background-image: linear-gradient(to bottom right, aqua, blue);
-            border: 2px solid #000;
-            input {
-                border-radius: 0.3em;
-                border: 2px solid #FFF;
-                padding: .4em 1em;
-                background-color: transparent;
-                transition: border 200ms;
-                color: #000;
+            gap: .4em;
+            #achievements-doned {
+                align-self: self-end;
+                border: 2px solid #48b;
+                padding: 0.3em;
+                font-weight: bold;
+                border-radius: .3em;
             }
-            input::placeholder {
-                color: #000;
-            }
-            input:focus {
-                outline: none;
-            }
-            select {
-                padding: .4em 1em;
-                border-radius: 0.3em;
-                border: 1px solid #48b;
-                outline: none;
-                background-color: transparent;
-                color: #000;
-                transition: border-color 300ms;
-            }
-            select option {
-                color: #000;
-            }
-            #submit {
-                color: #FFF;
-                transition: background-color 100ms;
-                cursor: pointer;
-            }
-            #submit:hover {
-                background-color: #48b;
+            #ach-container {
+                article {
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: #0009;
+                    border-radius: 0.5em;
+                    padding: 0.4em 0.6em;
+                    border: 2px solid #48b;
+                    gap: 4em;
+                    #left-side {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        gap: 0;
+                        h3 {
+                            display: flex;
+                            align-items: center;
+                            gap: .2em;
+                            svg {
+                                fill: currentColor;
+                                color: #888;
+                                width: .7em;
+                                height: .7em;
+                            }
+                        }
+                        p {
+                            font-size: .8em;
+                        }
+                    }
+                    #right-side {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0;
+                        p {
+                            align-self: self-end;
+                            font-size: .8em;
+                        }
+                        p:nth-child(2) {
+                            display: flex;
+                            align-items: center;
+                            gap: .3em;
+                            svg {
+                                fill: currentColor;
+                                color: #888;
+                                width: .9em;
+                            }
+
+                        }
+                    }
+                }
+                article.ach-doned {
+                    color: #888;
+                }
             }
         }
     }
@@ -189,7 +217,7 @@ body {
 
 #page-footer {
     grid-row-start: 3;
-    padding: 1em .5em;
+    padding: 1em 0.5em;
     background-image: linear-gradient(to bottom right, aqua, blue);
     box-shadow: 0 0 0.8em 0.1em #000;
     display: flex;
@@ -197,6 +225,6 @@ body {
     justify-content: end;
     a {
         text-decoration: none;
-        color: #FFF;
+        color: #fff;
     }
 }

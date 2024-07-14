@@ -43,7 +43,7 @@ body {
     dialog[open] {
         display: flex;
         width: 8%;
-        height: 10%;
+        height: 15%;
     }
     dialog {
         top: 45%;
