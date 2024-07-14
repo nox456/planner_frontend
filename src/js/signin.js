@@ -15,6 +15,8 @@ if (auth.status != 401) {
         const dialog = document.querySelector("#message")
         const username = username_input.value;
         const password = password_input.value;
+        dialog.innerHTML = `<p><b>Cargando...</b></p>`
+        dialog.showModal()
         const res = await fetch(`${HOST}/auth/signin`, {
             credentials: "include",
             method: "POST",
@@ -23,6 +25,11 @@ if (auth.status != 401) {
             },
             body: JSON.stringify({ username, password }),
         });
+        dialog.close()
+        dialog.innerHTML = `
+            <p></p>
+            <button>Aceptar</button>
+        `
         if (res.status == 200) {
             location.href = '../pages/tareas.html'
         } else {

@@ -12,8 +12,11 @@ if (auth.status != 401) {
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        const dialog = document.querySelector("#message")
         const username = username_input.value;
         const password = password_input.value;
+        dialog.innerHTML = `<p><b>Cargando...</b></p>`
+        dialog.showModal()
         const res = await fetch(`${HOST}/auth/signup`, {
             credentials: "include",
             method: "POST",
@@ -22,8 +25,12 @@ if (auth.status != 401) {
             },
             body: JSON.stringify({ username, password }),
         });
+        dialog.close()
+        dialog.innerHTML = `
+            <p></p>
+            <button>Aceptar</button>
+        `
         if (res.status == 400) {
-            const dialog = document.querySelector("#message")
             dialog.showModal()
             dialog.querySelector("p").innerText = "El usuario ya existe!"
             dialog.querySelector("button").addEventListener("click", () => {
