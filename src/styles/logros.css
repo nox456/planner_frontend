@@ -159,6 +159,7 @@ body {
             }
             #ach-container {
                 overflow-y: auto;
+                height: 80%;
                 article {
                     display: flex;
                     justify-content: space-between;
@@ -275,6 +276,9 @@ body {
             grid-column-start: 1;
             div {
                 font-size: .9em;
+                #ach-container article {
+                    width: 80%;
+                }
             }
         }
     }
