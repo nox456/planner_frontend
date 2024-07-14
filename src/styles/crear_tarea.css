@@ -200,3 +200,50 @@ body {
         color: #FFF;
     }
 }
+
+@media screen and (max-width: 640px) { 
+    #page-header {
+        h1 {
+            font-size: 1.2em;
+        }
+        #username {
+            width: 20%;
+        }
+        dialog[open] {
+            height: fit-content;
+            width: 60%;
+        }
+        dialog {
+            left: 20%;
+        }
+    }
+    #page-main {
+        grid-template-rows: 15% 85%;
+        grid-template-columns: 100%;
+        background-size: 200% 100%;
+        background-repeat: no-repeat;
+        #links-sidebar {
+            grid-row-start: 1;
+            grid-row-end: 1;
+            grid-column-start: 1;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            border: none;
+            padding: .3em 0;
+            border-bottom: 2px solid #bbb;
+            a {
+                font-size: .7em;
+                width: 20%;
+                svg {
+                    width: 1em;
+                    height: 1em;
+                }
+            }
+        }
+        #create-task {
+            grid-row-start: 2;
+            grid-column-start: 1;
+        }
+    }
+}

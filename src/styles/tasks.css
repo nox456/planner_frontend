@@ -447,6 +447,9 @@ body {
 
 @media screen and (max-width: 640px) {
     #page-header {
+        h1 {
+            font-size: 1.2em;
+        }
         #username {
             width: 20%;
         }
